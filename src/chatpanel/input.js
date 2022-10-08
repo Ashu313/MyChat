@@ -24,7 +24,6 @@ const Input = () => {
   const {currentUser}=useContext(AuthContext);
   const [img,setFile]=useState(null);
 
-
   const handleSend=async()=>{
 
 
@@ -89,7 +88,7 @@ const Input = () => {
       });
       console.log("dhdhhd");
     
-      setText(" ");
+      setText("");
  setFile(null);
   
     }
@@ -110,10 +109,12 @@ const Input = () => {
   
       
        
-       
+<p style={{color:'white',textAlign:'center',color:'chartreuse' ,marginTop:'-30px'}}>{text?`${data.user.displayName} is typing..`:''}</p>
           <div class="footer-chat">
+          
         <div className='cc'>
           <input type="text" class="write-message" placeholder="Type your message here" value={text} onChange={(e)=>setText(e.target.value)}/> 
+          
           </div>
           <input type="file"  id='input'  onChange={(e)=>setFile((e.target.files[0]))
            }/>

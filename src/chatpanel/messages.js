@@ -28,7 +28,7 @@ const Messages=({setPhonvView})=>{
   
     const [messages,setMessages]=useState([]);
     const { data } = useContext(ChatContext);
-    const [text,setText]=useState("ahahah");
+    const [text,setText]=useState("");
   
    // const {data}=useContext(ChatContext);
     const [activeChat,setActiveChat]=useState(false);
@@ -69,6 +69,7 @@ const setPhoneView1=()=>{
               <div class="online">
               
               </div>
+              
               </div>
           
           <p class="name">{data.user.displayName}</p>

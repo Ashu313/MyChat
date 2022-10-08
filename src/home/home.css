@@ -11,6 +11,10 @@ body {
     display: flex;
   }
   
+  p{
+    color: white;
+    
+  }
   /* ===== MENU ===== */
   .menu {
     float: left;
@@ -305,6 +309,7 @@ body {
     display:flex;
  justify-content: center;
     background-color: black;
+    height: 100px;
    
   }
   
@@ -330,7 +335,7 @@ body {
   .chat .messages-chat {
   
     overflow-x: hidden;
-    height: 500px;
+    height: 450px;
     display: initial;
     position: absolute;
   width: 100%;  }

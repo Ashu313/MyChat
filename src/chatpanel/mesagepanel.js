@@ -51,6 +51,7 @@ console.log(firebaseDate.seconds);
 
 
   <>
+
     <p style={{margin:'25px 25px 25px 25px' ,color:'white',textAlign:'center'}}>{timestamp}</p>
   <div  ref={re1f} className={`message1-chat ${message.senderId===currentUser.uid&&"owner"}`} >
   <div className='aside'>
