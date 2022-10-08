@@ -1,0 +1,76 @@
+.contact{
+    padding: 3px 8px;
+    color: #BBB;
+    background-color: #FFF;
+    border: 1px solid #E5E5E5;
+    border-radius: 15px;
+  
+   width: 50%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.content{
+    display: flex;
+    justify-content: center;
+}
+.contact1{
+    padding: 3px 8px;
+    color: #BBB;
+    width: 50%;
+    background-color: #FFF;
+    border: 1px solid #E5E5E5;
+    border-radius: 15px;
+  
+   
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.message1-chat{
+    background: aqua;
+    padding: 0.5rem;
+    border-radius: 10px;
+    width: 50%;
+    margin-bottom: 10px;
+}
+.message-chat{
+    position: absolute;
+    width:50%
+    
+}
+.message2-chat{
+    display: flex;
+   
+    background: aqua;
+    padding: 0.5rem;
+    border-radius: 10px;
+    width: 50%;
+    margin-bottom: 10px;
+}
+
+.owner{
+    background-color: green;
+   
+    overflow: hidden;
+    position: relative;
+    left: 50%;
+}
+.flex{
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    padding: 2rem;
+}
+.butt{
+    display: flex;
+}
+.button{
+background-color: green;
+color: white;
+}
+.searchbar i{
+    color: black;
+    margin-left: -20px;
+}
+i{
+    font-size: 20px;
+}
