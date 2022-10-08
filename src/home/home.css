@@ -11,10 +11,7 @@ body {
     display: flex;
   }
   
-  p{
-    color: white;
-    
-  }
+  
   /* ===== MENU ===== */
   .menu {
     float: left;
