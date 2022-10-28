@@ -9,7 +9,8 @@ import { useEffect } from 'react';
 const Login=()=>{
  
 
- const [loading, setLoading] = useState(false);
+ const [loading, setLoading] = useState("hello world");
+ const[sign,setSign]=useState(false);
       
 
 
@@ -29,8 +30,12 @@ const Login=()=>{
    
     try{
       console.log("shhs");
+      setSign(!sign);
       await signInWithEmailAndPassword(auth, Email, Password)
-      setLoading(!loading);
+      setLoading(!loading)
+       setSign(sign);
+     
+    //  setLoading(!loading);
       console.log("Ss");
       navigate('/')
        /*res.then((userCredential) => {
@@ -50,6 +55,7 @@ const Login=()=>{
          const errorCode = error.code;
          const errorMessage = error.message;
          setErr(true);
+         setSign(true);
          console.log(errorMessage);
          setLoading(false);
        }
@@ -58,23 +64,23 @@ const Login=()=>{
    
   };
   return (
-   
-
+    !sign  ?
+    <>
     <div class="login">
   <div class="form">
    
     <form class="login-form" onSubmit={HandleSignIn}>
     
-     
       <span class="material-icons">lock</span>
       <input type="text" placeholder="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
       <input type="password" placeholder="password" required />
       <button>login</button>
       <span class="extra-line">
+    
       {
         
-          Err && <span>Invalid Creditials</span>
-          }
+        Err && sign && <span>Invalid Creditials</span>
+        }
           <br></br>
             <span>Dont have an account?</span>
             <NavLink to='/register'>Sign Up</NavLink>
@@ -84,7 +90,37 @@ const Login=()=>{
 
   </div>
 </div>
+</>
+:Err?  <div class="login">
+<div class="form">
+ 
+  <form class="login-form" onSubmit={HandleSignIn}>
+  
+    <span class="material-icons">lock</span>
+    <input type="text" placeholder="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
+    <input type="password" placeholder="password" required />
+    <button>login</button>
+    <span class="extra-line">
+  
+    {
+      
+      Err && <span>Invalid Creditials</span>
+    
+    
+      }
+        <br></br>
+          <span>Dont have an account?</span>
+          <NavLink to='/register'>Sign Up</NavLink>
+        </span>
+      
+  </form>  
+
+</div>
+</div>:<img src="/images/loader-unscreen.gif" alt="loading..."  style={{width:"60%",height:"60%",position:'relative',top:'100px'}}/>
+
+  
   )
+
 }
 
 export default Login;

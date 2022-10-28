@@ -17,6 +17,7 @@ const  Register=() => {
 
  
     const [err,setErr]=useState(false);
+    const [loader,setLoader]=useState(false);
     const navigate=useNavigate();
 
     const HandleSubmit=async(e)=>{
@@ -32,8 +33,9 @@ const  Register=() => {
         const file=e.target[4].files[0];
         if(Password===CnfPassword)
         {
-            
+            setLoader(!loader);
         const res=await createUserWithEmailAndPassword(auth,Email,Password)
+        
       
         try{
           const storageRef=ref(storage,DisplayName)
@@ -48,7 +50,7 @@ const  Register=() => {
                   displayName:DisplayName,
                   photoURL:DownloadURL,
                 });
-                console.log('sex1');
+              
                 await setDoc(doc(db, 'users',( res).user.uid), {
                   uid:( res).user.uid,
                      displayName:DisplayName, 
@@ -58,7 +60,7 @@ const  Register=() => {
                 
                    
                    });
-                   console.log('sex');
+                
                    await setDoc(doc(db, 'usersChats',( res).user.uid), {})
                    navigate('/');
               });
@@ -107,6 +109,8 @@ const  Register=() => {
      
    
   return (
+    !loader?
+    <>
     <div class=" flex-r container">
     <div class="flex-r login-wrapper">
       <div class="login-text">
@@ -172,6 +176,8 @@ const  Register=() => {
       </div>
     </div>
   </div>
+  </>
+  :<img src="/images/loader-unscreen.gif" alt="loading..."  style={{width:"100%",height:"1000%",position:'relative',top:'100px'}}/>
   )
 }
 

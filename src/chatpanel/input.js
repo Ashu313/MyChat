@@ -14,7 +14,7 @@ import Chats from './chats'
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
 
 //rafe
-const Input = () => {
+const Input = ({chat1}) => {
 
  
   const [text,setText]=useState("");
@@ -24,6 +24,8 @@ const Input = () => {
   const {currentUser}=useContext(AuthContext);
   const [img,setFile]=useState(null);
 
+  console.log(data.user.displayName);
+  let chat_user=data.user.displayName;
   const handleSend=async()=>{
 
 
@@ -87,6 +89,7 @@ const Input = () => {
   
       });
       console.log("dhdhhd");
+   
     
       setText("");
  setFile(null);
@@ -113,23 +116,24 @@ const Input = () => {
           <div class="footer-chat">
           
         <div className='cc'>
-          <input type="text" class="write-message" placeholder="Type your message here" value={text} onChange={(e)=>setText(e.target.value)}/> 
+          {chat1&&<textarea type="text" class="write-message" placeholder="Type your message here" value={text} onChange={(e)=>setText(e.target.value)}  cols={30}/> }
           
           </div>
-          <input type="file"  id='input'  onChange={(e)=>setFile((e.target.files[0]))
-           }/>
-          <i class="fa-solid fa-paper-plane"  onClick={handleSend}></i>
+         {chat1 && <input type="file"  id='input'  onChange={(e)=>setFile((e.target.files[0]))
+           }/>}
+
+        {chat1 &&  <i class="fa-solid fa-paper-plane"  onClick={handleSend}></i>}
           
-          <i class="fa-solid fa-microphone"></i>
-          <i class="fa-solid fa-face-smile"></i>
-           
-          <div className='label'>
+         {chat1 && <i class="fa-solid fa-microphone"></i>}
+          {chat1 &&<i class="fa-solid fa-face-smile"></i>}
+          
+          {chat1 &&<div className='label'>
             <label className='image-upload' htmlFor='input'>
             <i class="fa-solid fa-file"></i>
             </label>
-          </div>
+          </div>}
           <img src={(img)} />
-        
+          
        
 
         </div>

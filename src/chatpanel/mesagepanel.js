@@ -61,12 +61,12 @@ console.log(firebaseDate.seconds);
   <img src={message.senderId===currentUser.uid?currentUser.photoURL:data.user.photoURL} alt='fuuu'></img>
  
   <div className='image'>
-    {message.img&&<img src={message.img}alt=""/>}
+  {message.img&&<img src={message.img}alt=""/>}
     <div className='box'>
 
     
-  <p>{message.text}</p>
-  <div className='set_date'>
+ <p style={{lineBreak:'anywhere'}}>{message.text}</p>
+  <div  className={`set_date ${message.senderId!=currentUser.uid&&"active1"}`}>
   <p style={{marginLeft:'40px',textAlign:'end',fontSize:'14px'}}>{ message.senderId===currentUser.uid?date.toLocaleTimeString('en-us'):date.toLocaleTimeString('en-us')}</p>
   </div>
   </div>

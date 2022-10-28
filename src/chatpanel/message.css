@@ -46,6 +46,11 @@
     width: 50%;
     margin-bottom: 10px;
 }
+.active1
+{
+   background-color: green;
+   display: contents;
+}
 
 .owner{
     background-color: green;

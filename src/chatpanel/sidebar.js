@@ -93,7 +93,10 @@ const[phone,setPhone]=useState(false);
 
   const handleSearch= async()=>{
     console.log("dhhd");
+ 
+   
     try{
+
     const q = query(collection(db, "users"), where("displayName", "==", username));
     console.log("bs");
     const querySnapshot = await getDocs(q);
@@ -162,7 +165,7 @@ const handleKey=(e)=>{
   {
     console.log(err);
     console.log("jjnjnjj");
-  }
+  } 
  
 
   
@@ -175,8 +178,8 @@ const handleKey=(e)=>{
      // setText(" ");
   
 
-console.log(user.photoURL);
-  
+console.log(user.displayName);
+
 
   setUserName(" ");
   setUser(null);
@@ -185,7 +188,12 @@ console.log(user.photoURL);
  
   //console.log(chat[1].userinfo.displayName)
 
-} 
+}
+var k=1;
+const handleSelet=(u)=>{
+    
+  dispatch({type:'CHANGE_USER',payload:u})
+    }
   return (
 
     
@@ -210,34 +218,65 @@ console.log(user.photoURL);
       <div class="searchbar" >
       <i class="fa-solid fa-magnifying-glass"></i>
         <input type="text" placeholder="Search..."   value={username} onKeyDown={handleKey} onChange={(e)=>setUserName(e.target.value)}></input>
-      </div>
+      </div> 
     </div>
     {user&&
-    <div class="discussion message-active"     onClick={handleSelectUser}>
-     
- 
+    <div class="discussion message-active"      onClick={handleSelectUser}>
+       <div class="desc-contact"   style={{display:'flex',gap:'1rem'}}onClick={()=> {
+        handleSelet(user.displayName)
+        setPhoneView1(true)}}>
+
+<div class="photo" style={{backgroundImage:`url(${user.photoURL})`}}>   
+
+<div class="online">
+
+</div>
+</div>
+<div class="desc-contact" >
+<p class="name" >{user.displayName}</p>
+
+</div>
+</div>
   
+   {/*} {Object.entries(chat)?.map((chats)=>(
     
-     
-     <div class="photo" style={{backgroundImage:`url(${user.photoURL})`}}>   
-     
-      <div class="online">
-   
-      </div>
-   </div>
-   <div class="desc-contact" >
-     <p class="name">{user.displayName}</p>
-     <p class="message"></p>
-   </div>
-   <div class="timer">{user.date}</div>
- 
-  
-    
-   
-    </div>
-   
-  
+       <div class="desc-contact"  key={chats[0]}  style={{display:'flex',gap:'1rem'}}onClick={()=> { console.log(chats[1].userinfo);
+        handleSelet(chats[1].userinfo)
+        setPhoneView1(true)}}>
+
+
+{user.displayName===chats[1].userinfo.displayName?
+<>
+<div class="photo" style={{backgroundImage:`url(${user.photoURL})`}}>   
+
+<div class="online">
+
+</div>
+</div>
+<div class="desc-contact" >
+<p class="name" >{user.displayName}</p>
+
+</div>
+</>
+:
+<>
+<div style={{display:'none'}}></div>
+</>
 }
+
+</div>
+       
+  
+    ))}*/}
+
+    
+    </div>
+
+
+
+   
+    
+    } 
 {chat &&<Chats setPhoneView1={setPhoneView1}/>}  
 
 
@@ -308,7 +347,6 @@ console.log(user.photoURL);
 
     
   )
-
 }
 
 export default Sidebar;

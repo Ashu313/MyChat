@@ -64,15 +64,13 @@ const setPhoneView1=()=>{
           <i class="icon fa fa-user-o"></i>
     
         
-         <div className='photo'>
+         <div className='photo1'>
             <img src={data.user.photoURL} alt="ss"/>
-              <div class="online">
-              
-              </div>
-              
+            <p class="name">{data.user.displayName}</p>
+             <p> last seen at....</p>
               </div>
           
-          <p class="name">{data.user.displayName}</p>
+        
          
        
           </div>
@@ -85,7 +83,7 @@ const setPhoneView1=()=>{
         </div>
       
 
-      <Input></Input>
+      <Input chat1={data.user.displayName}></Input> 
 
       
  {phone&&<Sidebar setPhoneView1={setPhoneView1}/>}

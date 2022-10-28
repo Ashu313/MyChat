@@ -81,6 +81,7 @@ console.log(lastSeen)
 const {data}=useContext(ChatContext);
 
 
+
   return (
 
     <>
@@ -88,10 +89,11 @@ const {data}=useContext(ChatContext);
     <section className='discussions'style={{width:'100%'}}>
 
     
-   {  Object.entries(chat)?.sort((a,b)=>a[1].date-b[1].date).map((chats)=>(
+   {  Object.entries(chat)?.sort((a,b)=>a[1].date?.date-b[1].date?.date).map((chats)=>(
     
    
     <div class='discussion' key={chats[0]} /*onClick={()=>handleSelet(chats[1].userinfo)} */ onClick={() => {
+  console.log(chats[1].userinfo);
       handleSelet(chats[1].userinfo)
       setPhoneView1(true)
     }}>
@@ -104,9 +106,9 @@ const {data}=useContext(ChatContext);
       </div>
       <div class="desc-contact">
         <p class="name">{chats[1].userinfo.displayName}</p>
-        <p class="message">{chats[1].lastmessage?.text}</p>
+        <p class="message"><i class="fa-solid fa-check-double" style={{fontSize:'10px',marginRight:'10px'}}></i>{chats[1].lastmessage?.text}</p>
       </div>
-      <div class="timer" style={{color:'black'}}>{lastSeenAgo.getLastSeen(chats[1].date?.date)}</div>
+      <div class="timer" style={{color:'black'}}>{lastSeenAgo.getLastSeen(chats[1].date==='NaN years ago'?" ":chats[1].date?.date)}</div>
     </div>
    
     ))}
