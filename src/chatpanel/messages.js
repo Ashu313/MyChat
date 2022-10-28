@@ -68,7 +68,7 @@ const setPhoneView1=()=>{
     
         
          <div className='photo1'>
-            <img src={data.user.photoURL} alt="ss"/>
+            {data.user.photoURL&&<img src={data.user.photoURL} />}
             <p class="name">{data.user.displayName}</p>
             <div>
  
@@ -84,9 +84,11 @@ const setPhoneView1=()=>{
 
         <div class="messages-chat">
           
+         
             {messages.map((k)=>(
                 <MessagePanel1 message={k} key={k.id}/>
-            ))}
+            ))
+}
         </div>
       
 
