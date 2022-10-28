@@ -222,7 +222,7 @@ const Sidebar = ({ setPhoneView1 }) => {
         <div class="discussion message-active" onClick={handleSelectUser}>
           <div class="desc-contact" style={{ display: 'flex', gap: '1rem' }} onClick={() => {
             handleSelet(user.displayName)
-            setPhoneView1(true)
+          //  setPhoneView1(true)
           }}>
 
             <div class="photo" style={{ backgroundImage: `url(${user.photoURL})` }}>
@@ -238,17 +238,18 @@ const Sidebar = ({ setPhoneView1 }) => {
       
           </div>
       
+      
   
   
 
 
         </div>
+}
 
 
 
 
-
-      }
+      
       {chat && <Chats setPhoneView1={setPhoneView1} />}
 
 
