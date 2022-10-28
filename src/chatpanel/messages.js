@@ -19,6 +19,9 @@ import LastStatus from 'react-last-status/lib/components/LastStatus';
 //import timestamp
 import { Timestamp } from 'firebase/firestore';
 import LastStatusProvider from "react-last-status";
+import { Online } from 'react-online-status'
+import { Offline } from 'react-online-status'
+import { Detector } from "react-online-status";
 
 
 const Messages=({setPhonvView})=>{
@@ -67,7 +70,11 @@ const setPhoneView1=()=>{
          <div className='photo1'>
             <img src={data.user.photoURL} alt="ss"/>
             <p class="name">{data.user.displayName}</p>
-             <p> last seen at....</p>
+            <div>
+ 
+    
+   
+</div>
               </div>
           
         

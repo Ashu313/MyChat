@@ -13,6 +13,7 @@ import "./message.css"
 import Chats from './chats'
 import Input from './input'
 import { useRef } from 'react'
+import LastStatus from 'react-last-status/lib/components/LastStatus'
 import { getDatabase, ref, onValue, push, onDisconnect, set } from "firebase/database";
 
 
@@ -59,6 +60,11 @@ console.log(firebaseDate.seconds);
   <div className='message' >
 
   <img src={message.senderId===currentUser.uid?currentUser.photoURL:data.user.photoURL} alt='fuuu'></img>
+
+ 
+
+    
+ 
  
   <div className='image'>
   {message.img&&<img src={message.img}alt=""/>}

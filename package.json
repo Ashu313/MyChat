@@ -23,6 +23,7 @@
     "react-icons": "^4.4.0",
     "react-input-emoji": "^4.2.0",
     "react-last-status": "^0.0.18",
+    "react-online-status": "^0.1.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "react-slick": "^0.29.0",

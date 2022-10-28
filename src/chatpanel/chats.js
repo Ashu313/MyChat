@@ -106,9 +106,9 @@ const {data}=useContext(ChatContext);
       </div>
       <div class="desc-contact">
         <p class="name">{chats[1].userinfo.displayName}</p>
-        <p class="message"><i class="fa-solid fa-check-double" style={{fontSize:'10px',marginRight:'10px'}}></i>{chats[1].lastmessage?.text}</p>
+        <p class="message">{chats[1].lastmessage?.text}</p>
       </div>
-      <div class="timer" style={{color:'black'}}>{lastSeenAgo.getLastSeen(chats[1].date==='NaN years ago'?" ":chats[1].date?.date)}</div>
+      <div class="timer" style={{color:'black'}}>{lastSeenAgo.getLastSeen(chats[1].date===Timestamp?"heheheh":chats[1].date?.date)}</div>
     </div>
    
     ))}

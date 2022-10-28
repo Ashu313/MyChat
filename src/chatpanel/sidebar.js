@@ -217,12 +217,12 @@ const handleSelet=(u)=>{
     <div class="discussion search">
       <div class="searchbar" >
       <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" placeholder="Search..."   value={username} onKeyDown={handleKey} onChange={(e)=>setUserName(e.target.value)}></input>
+        <input type="text" placeholder="Search by name...."   value={username} onKeyDown={handleKey} onChange={(e)=>setUserName(e.target.value)}></input>
       </div> 
     </div>
     {user&&
     <div class="discussion message-active"      onClick={handleSelectUser}>
-       <div class="desc-contact"   style={{display:'flex',gap:'1rem'}}onClick={()=> {
+    {/*   <div class="desc-contact"   style={{display:'flex',gap:'1rem'}}onClick={()=> {
         handleSelet(user.displayName)
         setPhoneView1(true)}}>
 
@@ -236,18 +236,18 @@ const handleSelet=(u)=>{
 <p class="name" >{user.displayName}</p>
 
 </div>
-</div>
+    </div>*/}
+
   
-   {/*} {Object.entries(chat)?.map((chats)=>(
+   {Object.entries(chat)?.map((chats)=>(
     
-       <div class="desc-contact"  key={chats[0]}  style={{display:'flex',gap:'1rem'}}onClick={()=> { console.log(chats[1].userinfo);
+  
+    <div class="desc-contact"  key={chats[0]}  style={{display:'flex',gap:'1rem',position:'absolute'}}>
+  {user.displayName===(chats[1].userinfo.displayName)?
+      <>
+<div class="photo" style={{display:'flex',backgroundImage:`url(${user.photoURL})`}} onClick={()=> { console.log(chats[1].userinfo);
         handleSelet(chats[1].userinfo)
-        setPhoneView1(true)}}>
-
-
-{user.displayName===chats[1].userinfo.displayName?
-<>
-<div class="photo" style={{backgroundImage:`url(${user.photoURL})`}}>   
+        setPhoneView1(true)}}>   
 
 <div class="online">
 
@@ -257,17 +257,17 @@ const handleSelet=(u)=>{
 <p class="name" >{user.displayName}</p>
 
 </div>
+
 </>
 :
 <>
-<div style={{display:'none'}}></div>
+<div>hdhdhd</div>
 </>
 }
-
 </div>
-       
+
   
-    ))}*/}
+    ))}
 
     
     </div>
