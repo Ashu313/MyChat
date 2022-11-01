@@ -1,0 +1,19 @@
+.fa-face-smile:hover, .fa-smile:hover {
+    color: yellow;
+}
+.fa-microphone{
+    color: red;
+}
+.fa-microphone:hover{
+    color: green;
+}
+.fa-volume-high
+{
+    color: orange;
+}
+.fa-volume-high:hover{
+    color: green;
+}
+.fa-file{
+    color: lightgray;
+}

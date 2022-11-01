@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import { query, where, getDocs, getDoc, updateDoc, serverTimestamp, Timestamp } from "firebase/firestore";
-import { db } from '../Firebase';
+import {  db } from '../Firebase';
 import { doc } from 'firebase/firestore';
 import { setDoc } from 'firebase/firestore';
 import { useContext } from 'react';
@@ -15,7 +15,16 @@ import { auth } from '../Firebase';
 import Messages from './messages';
 import Home from '../home/home';
 import { collection } from 'firebase/firestore';
+import { onValue } from 'firebase/database';
+import { push } from 'firebase/database';
+import { set } from 'firebase/database';
+import { getFirestore } from 'firebase/firestore';
 
+
+
+import { database } from '../Firebase';
+import { update } from 'firebase/database';
+import { getDatabase, ref, onDisconnect } from "firebase/database";
 
 const Sidebar = ({ setPhoneView1 }) => {
 
@@ -31,7 +40,17 @@ const Sidebar = ({ setPhoneView1 }) => {
 
     dispatch({ type: 'CHANGE_USER', payload: u })
   }
-
+  var date = new Date();
+// get the date as a string
+var n = date.toDateString();
+// get the time as a string
+var time = date.toLocaleTimeString();
+ var st =n+' '+time;
+ console.log(st);
+// log the date in the browser console
+console.log('date:', n);
+// log the time in the browser console
+console.log('time:',time);
   // const [phone,setPhone]=useState(false);
 
 
@@ -70,23 +89,22 @@ const Sidebar = ({ setPhoneView1 }) => {
 
 
   const Sign = () => {
+    const docRef = doc(db, "users", `${currentUser.uid}`);
+  console.log(docRef);
+    const data = {
+      
+      status:st,
+    };
+    updateDoc(docRef, data)
+  .then((docRef) => {
+    console.log("A New Document Field has been added to an existing document");
+ })
+ .catch(error => {
+    console.log(error);
+})
     signOut(auth);
   }
-  useEffect(() => {
-    const getChats = () => {
-      console.log("jnd");
-      const refresh = onSnapshot(doc(db, 'usersChats', currentUser.uid), (doc) => {
-        console.log('current-data', doc.data());
-        setChat(doc.data());
-      });
-
-      return () => {
-        refresh();
-      }
-    };
-    currentUser.uid && getChats();
-
-  }, [currentUser.uid]);
+ 
 
   //console.log(Object.entries(chat));
 
@@ -96,8 +114,8 @@ const Sidebar = ({ setPhoneView1 }) => {
 
 
     try {
-
-      const q = query(collection(db, "users"), where("displayName", "==", username));
+       
+      const q = query(collection(db, "users"), where("email", "==", username));
       console.log("bs");
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => {
@@ -114,13 +132,13 @@ const Sidebar = ({ setPhoneView1 }) => {
       console.log(err);
     }
   }
-
+ 
 
   const handleKey = (e) => {
     e.code === 'Enter' && handleSearch();
   }
 
-  const handleSelectUser = async (u) => {
+  const handleSelectUser = async () => {
     const combineId = currentUser.uid > user.uid ? currentUser.uid + user.uid : user.uid + currentUser.uid;
     const res = await getDoc(doc(db, 'chats', combineId));
     console.log(res);
@@ -128,15 +146,27 @@ const Sidebar = ({ setPhoneView1 }) => {
     console.log(user.uid);
     console.log(res.exists() ? 'true' : 'false');
     try {
-      if (!res.exists()) {
+
+
+      if (res.exists()) {
+     
+        
+
+     
         console.log(res);
         await setDoc(doc(db, 'chats', combineId), { messages: [] });
         console.log("h");
         await updateDoc(doc(db, 'usersChats', currentUser.uid), {
           [combineId + ".userinfo"]: {
             uid: user.uid,
+           
             displayName: user.displayName,
             photoURL: user.photoURL,
+            email:user.email,
+            status:user.status,
+         
+            
+
 
 
 
@@ -145,16 +175,23 @@ const Sidebar = ({ setPhoneView1 }) => {
           [combineId + ".date"]: serverTimestamp(),
 
         });
+        console.log("user update hua");
         await updateDoc(doc(db, 'usersChats', user.uid), {
           [combineId + ".userinfo"]: {
             uid: currentUser.uid,
+           
             displayName: currentUser.displayName,
             photoURL: currentUser.photoURL,
-
+               email:currentUser.email,
+               status:user.status,
+          
+             
+          
 
 
           },
           [combineId + ".date"]: serverTimestamp()
+          
         });
 
         console.log("dhdhd");
@@ -177,9 +214,10 @@ const Sidebar = ({ setPhoneView1 }) => {
 
 
     console.log(user.displayName);
+   
 
 
-    setUserName(" ");
+    setUserName("");
     setUser(null);
 
     console.log("chdhhf");
@@ -204,6 +242,7 @@ const Sidebar = ({ setPhoneView1 }) => {
       <div class="flex">
         <div className='image-bottom'>
           <h1>{currentUser.displayName}</h1>
+        {/*  <h1>{currentUser.metadata.lastSignInTime}</h1>*/}
           <img src={currentUser.photoURL} />
         </div>
         <div className='butt'>
@@ -254,65 +293,6 @@ const Sidebar = ({ setPhoneView1 }) => {
 
 
 
-      {/*{phone&&<Chats  phone={setPhoneView}/>}*/}
-
-      {/*<div class="discussion">
-    <div class="photo" style={{backgroundImage: "url(https://images.unsplash.com/photo-1435348773030-a1d74f568bc2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80);"}}>        <div class="online"></div>
-      </div>
-      <div class="desc-contact">
-        <p class="name">Dave Corlew</p>
-        <p class="message">Let's meet for a coffee or something today ?</p>
-      </div>
-      <div class="timer">3 min</div>
-    </div>
-
-    <div class="discussion">
-    <div class="photo" style={{backgroundImage: "url(https://images.unsplash.com/photo-1435348773030-a1d74f568bc2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80);"}}>      </div>
-      <div class="desc-contact">
-        <p class="name">Jerome Seiber</p>
-        <p class="message">I've sent you the annual report</p>
-      </div>
-      <div class="timer">42 min</div>
-    </div>
-
-    <div class="discussion">
-    <div class="photo" style={{backgroundImage: "url(https://images.unsplash.com/photo-1435348773030-a1d74f568bc2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80);"}}>        <div class="online"></div>
-      </div>
-      <div class="desc-contact">
-        <p class="name">Thomas Dbtn</p>
-        <p class="message">See you tomorrow ! 🙂</p>
-      </div>
-      <div class="timer">2 hour</div>
-    </div>
-
-    <div class="discussion">
-    <div class="photo" style={{backgroundImage: "url(https://images.unsplash.com/photo-1435348773030-a1d74f568bc2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80);"}}>      </div>
-      <div class="desc-contact">
-        <p class="name">Elsie Amador</p>
-        <p class="message">What the f**k is going on ?</p>
-      </div>
-      <div class="timer">1 day</div>
-    </div>
-
-    <div class="discussion">
-    <div class="photo" style={{backgroundImage: "url(https://images.unsplash.com/photo-1435348773030-a1d74f568bc2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80);"}}>      </div>
-      <div class="desc-contact">
-        <p class="name">Billy Southard</p>
-        <p class="message">Ahahah 😂</p>
-      </div>
-      <div class="timer">4 days</div>
-    </div>
-
-    <div class="discussion">
-      <div class="photo" style={{backgroundImage: "url(https://images.unsplash.com/photo-1435348773030-a1d74f568bc2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80);"}}>
-        <div class="online"></div>
-      </div>
-      <div class="desc-contact">
-        <p class="name">Paul Walker</p>
-        <p class="message">You can't see me</p>
-      </div>
-      <div class="timer">1 week</div>
-    </div>*/}
 
     </section>
 

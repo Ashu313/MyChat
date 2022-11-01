@@ -5,15 +5,22 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import ContextApi from './contextApi/contextapi';
 import { ChatContextProvider } from './contextApi/chatContext';
+import Dictaphone1 from './home/microphone';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  
 <ContextApi>
    <ChatContextProvider>
-      <App/>
+      <App>
+    
+    
+    
+      </App>
    </ChatContextProvider>
 
 </ContextApi>
+
     
 
 );

@@ -1,6 +1,7 @@
 body {
     padding: 5%;
     background-color: #F5F5F5;
+    
   }
   
   .container {
@@ -269,12 +270,21 @@ body {
    font-size: 15px;
    color: white;
    }
+   .__web-inspector-hide-shortcut__, .__web-inspector-hide-shortcut__ *, .__web-inspector-hidebefore-shortcut__::before, .__web-inspector-hideafter-shortcut__::after{
+    visibility: visible;
+   }
    
    .discussions1 .discussion .message {
      margin: 6px 0 0 20px;
      font-family:'Montserrat', sans-serif;
      font-size: 11px;
      color:white
+   }
+
+   .photo1 img{
+    width: 28px;
+    height: 28px;
+    border: 1px solid white;
    }
   img{
     width: 40px;
@@ -300,13 +310,13 @@ body {
   }
   
   .header-chat {
-    background-color: #FFF;
+    background:linear-gradient(225deg, #02111b9a 0%, #02082254 100%);
    
     box-shadow: 0px 3px 2px rgba(0,0,0,0.100);
     display:flex;
  justify-content: center;
-    background-color: black;
-    height: 100px;
+    
+    height: 40px;
    
   }
   
@@ -360,7 +370,9 @@ body {
     padding: 15px;
     border-radius: 12px;
   }
-  
+  .chat.active{
+    background: #161b22;
+  }
   .text-only {
     margin-left: 45px;
   }
@@ -387,6 +399,24 @@ body {
   .response .text {
     background-color: #e3effd !important;
   }
+  .flex-col{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .flex-col>h2{
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 13px;
+    letter-spacing: 0;
+    color: white;
+  }
+  .flex-col>p{
+    font-weight: 400;
+    font-size: 9px;
+    line-height: 9px;
+    color: #98aff8;;
+}
   
   .footer-chat {
    
@@ -443,7 +473,21 @@ i{
   
     padding: 10px;
   }
-  
+  .image1:hover{
+    transform: scale(1.5)
+  }
+ 
+  .image img:hover{
+    transform: scale(1.5);
+    transition:.2s;
+    width:100%;
+    cursor: pointer;
+  }
+  .display_flex i{
+    margin: auto;
+    margin-right: 2px;
+    cursor: pointer;
+  }
   .footer-chat *::-webkit-input-placeholder {
     color: #C0C0C0;
     font-size: 13pt;
@@ -482,6 +526,7 @@ i{
   .image img{
    width: 100%;
    border-radius: 0px;
+   cursor: pointer;
   }
 
   .cc{
@@ -490,7 +535,23 @@ i{
   textarea{
     
     width: 100%;
+    border-radius: 10px;
+    width: 100%;
+    border-radius: 10px;
+    font-size: 10px;
+    border: none;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 11px;
+    letter-spacing: -.0703125px;
+    outline: 0;
+    margin-left: 10px;
+    height: 60px;
+      
   }
+  textarea::placeholder {
+    font: 10px sans-serif;
+}
   .fa-solid.fa-arrow-left{
     display: none;
   }
@@ -508,6 +569,11 @@ i{
     gap: 2rem;
 
     
+  }
+  aside.emoji-picker-react
+  {
+    position: absolute;
+    bottom: 100px;
   }
 @media screen and (max-width:800px) {
  

@@ -6,7 +6,9 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-
+body{
+  background-color: black;
+}
 .flex-r,
 .flex-c {
   justify-content: center;

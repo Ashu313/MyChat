@@ -4,14 +4,21 @@ import { auth } from '../Firebase';
 import { NavLink, useNavigate } from 'react-router-dom';
 import "./login.css";
 import { useState } from 'react';
+import { ChatContext } from '../contextApi/chatContext';
 import { useEffect } from 'react';
+import { useContext } from 'react';
+import { AuthContext } from '../contextApi/contextapi';
+import { query, where, getDocs, getDoc, updateDoc, serverTimestamp, Timestamp } from "firebase/firestore";
+import {  db } from '../Firebase';
+import { doc } from 'firebase/firestore';
 
 const Login=()=>{
  
 
  const [loading, setLoading] = useState("hello world");
  const[sign,setSign]=useState(false);
-      
+ const { currentUser } = useContext(AuthContext);
+
 
 
  
@@ -32,6 +39,7 @@ const Login=()=>{
       console.log("shhs");
       setSign(!sign);
       await signInWithEmailAndPassword(auth, Email, Password)
+   
       setLoading(!loading)
        setSign(sign);
      
@@ -116,7 +124,7 @@ const Login=()=>{
   </form>  
 
 </div>
-</div>:<img src="/images/loader-unscreen.gif" alt="loading..."  style={{width:"60%",height:"60%",position:'relative',top:'100px'}}/>
+</div>:<img src="https://i.gifer.com/SVKl.gif" alt="loading..."  style={{width:"100%",height:"100%",position:'relative',top:'100px'}}/>
 
   
   )

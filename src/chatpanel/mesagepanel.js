@@ -15,6 +15,8 @@ import Input from './input'
 import { useRef } from 'react'
 import LastStatus from 'react-last-status/lib/components/LastStatus'
 import { getDatabase, ref, onValue, push, onDisconnect, set } from "firebase/database";
+import { useSpeechRecognition } from 'react-speech-kit';
+import { useSpeechSynthesis } from 'react-speech-kit';
 
 
 //rafe
@@ -40,7 +42,9 @@ console.log(firebaseDate.seconds);
  var timestamp =  formattedDate 
  var newDate = new Date(date.getTime() - date.getTimezoneOffset()*60*1000);
  console.log(newDate);
-    
+ 
+ const [text,setText]=useState("");
+ const { speak } = useSpeechSynthesis();
 //currentUser
 
 
@@ -71,9 +75,12 @@ console.log(firebaseDate.seconds);
     <div className='box'>
 
     
- <p style={{lineBreak:'anywhere'}}>{message.text}</p>
+ <p style={{lineBreak:'anywhere',marginLeft:'10px'}}>{message?.text}</p>
+
+  {message.text!=""&&message.senderId===currentUser.uid?<i class="fa-solid fa-microphone" onClick={() => speak({ text: message.text})} style={{color:"red",position:"absolute",right:'0px',bottom:'20px'}}></i>:<i class="fa-solid fa-microphone" onClick={() => speak({ text: message.text})} style={{color:"red"}}></i>}
+  
   <div  className={`set_date ${message.senderId!=currentUser.uid&&"active1"}`}>
-  <p style={{marginLeft:'40px',textAlign:'end',fontSize:'14px'}}>{ message.senderId===currentUser.uid?date.toLocaleTimeString('en-us'):date.toLocaleTimeString('en-us')}</p>
+  <p style={{marginLeft:'40px',textAlign:'end',fontSize:'14px'}}>{ message.senderId===currentUser.uid?date.toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'}):date.toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'})}</p>
   </div>
   </div>
     

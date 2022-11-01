@@ -34,42 +34,49 @@ const  Register=() => {
         if(Password===CnfPassword)
         {
             setLoader(!loader);
-        const res=await createUserWithEmailAndPassword(auth,Email,Password)
-        
+        const res=await createUserWithEmailAndPassword(auth,Email,Password);
+        const date=new Date().getTime();
+
+
+      //  setLoader(loader);
       
         try{
-          const storageRef=ref(storage,DisplayName)
-          const uploadTask = uploadBytesResumable(storageRef, file)
-          uploadTask.on(
-            (error)=>{
-              setErr(true);
-            },
-            ()=>{
-              getDownloadURL(uploadTask.snapshot.ref).then(async(DownloadURL)=>{
-                await updateProfile(res.user,{
-                  displayName:DisplayName,
-                  photoURL:DownloadURL,
-                });
-              
-                await setDoc(doc(db, 'users',( res).user.uid), {
-                  uid:( res).user.uid,
-                     displayName:DisplayName, 
-                   Email,
-                   photoURL:DownloadURL,
-                 
-                
-                   
-                   });
-                
-                   await setDoc(doc(db, 'usersChats',( res).user.uid), {})
-                   navigate('/');
-              });
-            }
-          )
-       
+          const storageRef=ref(storage,`${DisplayName+date}`);
+           await uploadBytesResumable(storageRef, file).then(()=>{
+            getDownloadURL(storageRef).then(async(DownloadURL)=>{
+          try{
+            await updateProfile(res.user,{
+              displayName:DisplayName,
+           
+              photoURL:DownloadURL,
+            });
+            await setDoc(doc(db, 'users',( res).user.uid), {
+              uid:( res).user.uid,
+                 displayName:DisplayName, 
+               email:Email,
+               photoURL:DownloadURL,
+               isOnline:true,
+               status:'online',
+             
+            
+               
+               });
           
+               await setDoc(doc(db, 'usersChats',( res).user.uid), {})
+               navigate('/');
+            
+              }
+          
+          catch(error) {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            setErr(true);
+            console.log(errorMessage);
+            
 
-        
+          }
+            });
+          });
         
            
            
@@ -177,7 +184,7 @@ const  Register=() => {
     </div>
   </div>
   </>
-  :<img src="/images/loader-unscreen.gif" alt="loading..."  style={{width:"100%",height:"1000%",position:'relative',top:'100px'}}/>
+  :<img src="https://i.gifer.com/SVKl.gif" alt="loading..."  style={{width:"100%",height:"100%",position:'relative',top:'100px'}}/>
   )
 }
 

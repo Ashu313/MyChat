@@ -59,6 +59,9 @@ const setPhoneView1=()=>{
   
     console.log(data.user.photoURL);
     console.log(data.user.displayName);
+    console.log(data.user.status);
+    console.log(data.user.email);
+    console.log(data.user.uid);
     return(
       
       <section class={phone?'chat':'chat active'}  >
@@ -68,10 +71,12 @@ const setPhoneView1=()=>{
     
         
          <div className='photo1'>
-            {data.user.photoURL&&<img src={data.user.photoURL} />}
-            <p class="name">{data.user.displayName}</p>
+            {data.user.photoURL&&<img src={data.user.photoURL} class='image1' />}
+            <div className="flex-col">
+            <h2 class="name">{data.user.displayName}</h2>
+            <p className="status">{data.user.status}</p>
             <div>
- 
+ </div>
     
    
 </div>

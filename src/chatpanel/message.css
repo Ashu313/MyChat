@@ -29,12 +29,14 @@
     background: aqua;
     padding: 0.5rem;
     border-radius: 10px;
-    width: 50%;
+    width: 60%;
     margin-bottom: 10px;
+    height: 70px;
+    box-shadow: rgb(149 157 165 / 20%) 20px 20px 24px;
 }
 .message-chat{
     position: absolute;
-    width:50%
+    width:60%
     
 }
 .message2-chat{
@@ -45,6 +47,11 @@
     border-radius: 10px;
     width: 50%;
     margin-bottom: 10px;
+    box-shadow: rgb(149 157 165 / 20%) 20px 20px 24px;
+}
+.message img{
+    width: 28px;
+    height: 28px;
 }
 .active1
 {
@@ -57,7 +64,8 @@
    
     overflow: hidden;
     position: relative;
-    left: 50%;
+    left: 40%;
+    box-shadow: rgb(149 157 165 / 20%) 20px 20px 24px;
 }
 .flex{
     display: flex;

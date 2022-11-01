@@ -7,7 +7,8 @@ import { Routes } from 'react-router-dom';
 import Login from './home/login';
 import { useContext } from 'react';
 import { AuthContext } from './contextApi/contextapi';
-
+import Dictaphone1 from './home/microphone';
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
 
 
@@ -28,6 +29,7 @@ const HideHome=({children})=>{
 
   return (
   <>
+  <Dictaphone1></Dictaphone1>
   <BrowserRouter>
   <Routes>
    
