@@ -44,6 +44,7 @@ const Input = ({chat1}) => {
   });
 
   console.log(data.user.displayName);
+  
   let chat_user=data.user.displayName;
  
 
@@ -206,5 +207,4 @@ const Input = ({chat1}) => {
  
 export default Input;
  
-
 

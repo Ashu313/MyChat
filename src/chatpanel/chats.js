@@ -23,6 +23,8 @@ import { OnDisconnect } from 'firebase/database';
 import { Timestamp } from 'firebase/firestore';
 import NotificationBadge from 'react-notification-badge';
 import {Effect} from 'react-notification-badge';
+import { Offline } from 'react-online-status';
+import { Online } from 'react-online-status';
 const lastSeenAgo=require('last-seen-ago');
 
 
@@ -33,12 +35,33 @@ const Chats = ({setPhoneView1,message}) => {
 
   const {currentUser}=useContext(AuthContext);
   const [chat,setChat]=useState([]);
+  const [text,setText]=useState("");
   const [note,setNote]=useState(0);
  
   const{dispatch}=useContext(ChatContext);
+  const {data}=useContext(ChatContext);
  //var uid=auth.currentUser.uid;
+ const [user, setUser] = useState(null);
+
+ console.log(currentUser.uid+data.user.uid);
 
  
+
+ useEffect(()=>{
+  const getChats=()=>{
+    console.log("jnd");
+    const refresh=onSnapshot(doc(db,'usersChats',String(currentUser.uid)),(doc)=>{
+      //console.log('current-data',doc.data());
+      setChat(doc.data());
+    });
+
+    return()=>{
+      refresh();
+    }
+  };
+  currentUser.uid && getChats();
+  
+},[currentUser.uid]);
 
 
 
@@ -51,34 +74,145 @@ const Chats = ({setPhoneView1,message}) => {
 // any time that connectionsRef's value is null (i.e. has no children) I am offline
 
 
+const value=async()=>{
+  const combineId =currentUser.uid > data.user.uid ? currentUser.uid + data.user.uid : data.user.uid + currentUser.uid;
+  const res =  await getDoc(doc(db, 'chats', combineId));
+  console.log(res);
+  console.log(currentUser.uid);
+  //console.log(user.uid);
+  console.log(res.exists() ? 'true' : 'false');
+  try {
 
-  useEffect(()=>{
-    const getChats=()=>{
-      console.log("jnd");
-      const refresh=onSnapshot(doc(db,'usersChats',currentUser.uid),(doc)=>{
-        //console.log('current-data',doc.data());
-        setChat(doc.data());
-      });
-  
-      return()=>{
-        refresh();
-      }
-    };
-    currentUser.uid && getChats();
+
+    if (!res.exists()) {
+   
+      
+
+   
+      console.log(res);
+     
     
-  },[currentUser.uid]);
+    updateDoc(doc(db, 'usersChats', String(currentUser.uid)),
+       {
+       
+        [combineId + ".userinfo"]: {
+          uid: data.user.uid,
+         
+          displayName: data.user.displayName,
+          photoURL: data.user.photoURL,
+          email:data.user.email,
+          status:data.user.status,
+       
+       
+          
 
+
+
+
+
+        },
+        [combineId + ".date"]: serverTimestamp(),
+
+      });
+      console.log("user update hua");
+      updateDoc(doc(db, 'usersChats', String(data.user.uid)),
+       {
+      
+        [combineId + ".userinfo"]: {
+          uid: currentUser.uid,
+         
+          displayName: currentUser.displayName,
+          photoURL: currentUser.photoURL,
+             email:currentUser.email,
+             status:currentUser.status?'online':'unavailable',
+            
+             
+           
+        
+
+
+        },
+        [combineId + ".date"]: serverTimestamp()
+        
+      });
+
+      console.log("dhdhd");
+
+    }
+    else{
+
+     updateDoc(doc(db, 'usersChats', String(currentUser.uid)),
+      {
+      
+       [combineId + ".userinfo"]: {
+         uid: data.user.uid,
+        
+         displayName: data.user.displayName,
+         photoURL: data.user.photoURL,
+         email:data.user.email,
+         status:new Date().toDateString()+' '+new Date().toLocaleTimeString(),
+      
+      
+         
+
+
+
+
+
+       },
+       [combineId + ".date"]: serverTimestamp(),
+
+     });
+     console.log("user update hua");
+  updateDoc(doc(db, 'usersChats', String(data.user.uid)),
+      {
+     
+       [combineId + ".userinfo"]: {
+         uid: currentUser.uid,
+        
+         displayName: currentUser.displayName,
+         photoURL: currentUser.photoURL,
+            email:currentUser.email,
+            status:currentUser.status?'online':'unavailable',
+           
+            
+          
+       
+
+
+       },
+       [combineId + ".date"]: serverTimestamp()
+       
+     });
+   
+
+    }
+  }
+  catch (err) {
+    
+    console.log(err);
+    console.log("jjnjnjj");
+  
+}
+
+}
 
 
 
   console.log("chdhhf");
-  const handleSelet=(u)=>{
+  const handleSelet= (u)=>{
     
-dispatch({type:'CHANGE_USER',payload:u})
-  }
+  
+  
   
 
-const {data}=useContext(ChatContext);
+dispatch({type:'CHANGE_USER',payload:u})
+
+
+  }
+  console.log("ddhdhd");
+
+
 let count =0; 
 
 
@@ -88,15 +222,18 @@ let count =0;
     
     <section className='discussions'style={{width:'100%'}}>
 
-    
-   {  Object.entries(chat)?.sort((a,b)=>a[1].date?.date-b[1].date?.date).map((chats)=>(
+    {  Object.entries(chat)?.sort((a,b)=>a[1].date?.date-b[1].date?.date).map((chats)=>(
     
    
     <div class='discussion' key={chats[0]} /*onClick={()=>handleSelet(chats[1].userinfo)} */ onClick={() => {
   console.log(chats[1].userinfo);
       handleSelet(chats[1].userinfo)
-      setPhoneView1(true)
+      setPhoneView1(false)
+    
+     
+      
     }}>
+     
       
           
 
@@ -117,6 +254,7 @@ let count =0;
     </div>
    
     ))}
+   
     
   
 

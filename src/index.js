@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import ContextApi from './contextApi/contextapi';
 import { ChatContextProvider } from './contextApi/chatContext';
 import Dictaphone1 from './home/microphone';
+import { Timestamp } from 'firebase/firestore';
+import LastStatus from 'react-last-status';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,7 +15,7 @@ root.render(
 <ContextApi>
    <ChatContextProvider>
       <App>
-    
+      
     
     
       </App>

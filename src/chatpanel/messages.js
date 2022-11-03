@@ -19,9 +19,10 @@ import LastStatus from 'react-last-status/lib/components/LastStatus';
 //import timestamp
 import { Timestamp } from 'firebase/firestore';
 import LastStatusProvider from "react-last-status";
-import { Online } from 'react-online-status'
-import { Offline } from 'react-online-status'
+
 import { Detector } from "react-online-status";
+import { Offline } from 'react-online-status';
+import { Online } from 'react-online-status';
 
 
 const Messages=({setPhonvView})=>{
@@ -56,12 +57,7 @@ const setPhoneView1=()=>{
         unSub();
       };
     }, [data.chatId]);
-  
-    console.log(data.user.photoURL);
-    console.log(data.user.displayName);
-    console.log(data.user.status);
-    console.log(data.user.email);
-    console.log(data.user.uid);
+
     return(
       
       <section class={phone?'chat':'chat active'}  >
@@ -74,6 +70,10 @@ const setPhoneView1=()=>{
             {data.user.photoURL&&<img src={data.user.photoURL} class='image1' />}
             <div className="flex-col">
             <h2 class="name">{data.user.displayName}</h2>
+            <div style={{color:'green'}}>
+                  
+    <Offline >{new Date().toDateString()+' '+new Date().toLocaleTimeString()}</Offline>
+  </div>
             <p className="status">{data.user.status}</p>
             <div>
  </div>

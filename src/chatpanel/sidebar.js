@@ -26,6 +26,8 @@ import { database } from '../Firebase';
 import { update } from 'firebase/database';
 import { getDatabase, ref, onDisconnect } from "firebase/database";
 
+
+
 const Sidebar = ({ setPhoneView1 }) => {
 
   const { dispatch } = useContext(ChatContext);
@@ -34,33 +36,66 @@ const Sidebar = ({ setPhoneView1 }) => {
   const [user, setUser] = useState(null);
   const [username, setUserName] = useState('');
   const { currentUser } = useContext(AuthContext);
+  console.log(currentUser.uid);
   const [chat, setChat] = useState([]);
+  const [online,setOnline]=useState(false);
   const { data } = useContext(ChatContext);
+  console.log(data.user.uid);
+  let k1=currentUser.uid+data.user.uid;
+  console.log(k1);
   const handle = (u) => {
 
     dispatch({ type: 'CHANGE_USER', payload: u })
   }
-  var date = new Date();
-// get the date as a string
-var n = date.toDateString();
-// get the time as a string
-var time = date.toLocaleTimeString();
- var st =n+' '+time;
- console.log(st);
-// log the date in the browser console
-console.log('date:', n);
-// log the time in the browser console
-console.log('time:',time);
-  // const [phone,setPhone]=useState(false);
 
 
 
   const [phone, setPhone] = useState(false);
+  //const [chat,setChat]=useState([]);
   const setPhoneView = () => {
     setPhone(!phone)
   }
 
-
+console.log(data.user.uid);
+ { const docRef = doc(db, "users", `${currentUser.uid}`);
+      console.log(docRef);
+        const data = {
+          
+          status:'online',
+        };
+        updateDoc(docRef, data)
+        console.log('update hua')
+      }
+      { 
+     
+       /* useEffect(()=>{
+          const getChats=()=>{
+            console.log("jnd");
+            const refresh=onSnapshot(doc(db,'usersChats',currentUser.uid),(doc1)=>{
+            console.log('current-data',Object.entries(doc1.data()));
+             
+              const docRef1 = doc(db, "usersChats", `${Object.entries(doc1.data())[0]}`);
+              setChat(doc1.data());
+            
+                const data1 = {
+                  
+                  status:'offline',
+                };
+                updateDoc(docRef1, data1)
+                console.log('update hua')
+            });
+        
+            return()=>{
+              refresh();
+            }
+          };
+          currentUser.uid && getChats();
+          
+        },[currentUser.uid]);*/
+      
+      }
+  
+     
 
 
 
@@ -69,13 +104,16 @@ console.log('time:',time);
 
   //const{dispatch}=useContext(ChatContext)
 
-
+let k11;
   useEffect(() => {
     const getChats = () => {
       console.log("jnd");
-      const refresh = onSnapshot(doc(db, 'usersChats', currentUser.uid), (doc) => {
-        //console.log('current-data',doc.data());
-        setChat(doc.data());
+      
+      const refresh = onSnapshot(doc(db, 'usersChats', currentUser.uid), (doc1) => {
+     // console.log('current-data', (Object.entries(Object.entries(doc.data()))[0][1])[1].userinfo.status);
+        setChat(doc1.data());
+    
+        //console.log((Object.entries(Object.entries(doc.data()))[0][1])[1].userinfo.status);
       });
 
       return () => {
@@ -86,26 +124,47 @@ console.log('time:',time);
 
   }, [currentUser.uid]);
 
+ 
+ 
+  var k2=false;
+  const Sign = async() => {
+    
+    
+  //console.log(`${(Object.entries(Object.entries(currentUser.uid))[0][1])[1].userinfo}`);
+    
+   
+  
 
+  
+    try{
+ // console.log(docRef);
+ const refresh=onSnapshot(doc(db,'usersChats',String(currentUser.uid)),(doc1)=>{
 
-  const Sign = () => {
-    const docRef = doc(db, "users", `${currentUser.uid}`);
-  console.log(docRef);
-    const data = {
-      
-      status:st,
-    };
-    updateDoc(docRef, data)
-  .then((docRef) => {
-    console.log("A New Document Field has been added to an existing document");
+  setChat(doc.data());
+
+  return()=>{
+    refresh();
+  }
  })
- .catch(error => {
+ 
+ 
+ }
+    
+catch(error) {
     console.log(error);
-})
+}
+
+
+
+
+
+  //console.log(chat[1].userinfo.displayName)
+
     signOut(auth);
   }
- 
 
+
+console.log(k2);
   //console.log(Object.entries(chat));
 
 
@@ -138,7 +197,8 @@ console.log('time:',time);
     e.code === 'Enter' && handleSearch();
   }
 
-  const handleSelectUser = async () => {
+  const handleSelectUser =   async() => {
+    
     const combineId = currentUser.uid > user.uid ? currentUser.uid + user.uid : user.uid + currentUser.uid;
     const res = await getDoc(doc(db, 'chats', combineId));
     console.log(res);
@@ -148,15 +208,17 @@ console.log('time:',time);
     try {
 
 
-      if (res.exists()) {
+      if (!res.exists()) {
      
         
 
      
         console.log(res);
-        await setDoc(doc(db, 'chats', combineId), { messages: [] });
+        await setDoc(doc(db, 'chats', String(combineId)), { messages: [] });
         console.log("h");
-        await updateDoc(doc(db, 'usersChats', currentUser.uid), {
+        await updateDoc(doc(db, 'usersChats', String(currentUser.uid)),
+         {
+         
           [combineId + ".userinfo"]: {
             uid: user.uid,
            
@@ -164,6 +226,7 @@ console.log('time:',time);
             photoURL: user.photoURL,
             email:user.email,
             status:user.status,
+         
          
             
 
@@ -176,7 +239,9 @@ console.log('time:',time);
 
         });
         console.log("user update hua");
-        await updateDoc(doc(db, 'usersChats', user.uid), {
+        await updateDoc(doc(db, 'usersChats', String(user.uid)),
+         {
+        
           [combineId + ".userinfo"]: {
             uid: currentUser.uid,
            
@@ -184,7 +249,8 @@ console.log('time:',time);
             photoURL: currentUser.photoURL,
                email:currentUser.email,
                status:user.status,
-          
+              
+               
              
           
 
@@ -197,11 +263,60 @@ console.log('time:',time);
         console.log("dhdhd");
 
       }
-    } catch (err) {
+      else{
+        await updateDoc(doc(db, 'usersChats', String(currentUser.uid)),
+        {
+        
+         [combineId + ".userinfo"]: {
+           uid: user.uid,
+          
+           displayName: user.displayName,
+           photoURL: user.photoURL,
+           email:user.email,
+           status:"online",
+        
+        
+           
+
+
+
+
+
+         },
+         [combineId + ".date"]: serverTimestamp(),
+
+       });
+       console.log("user update hua");
+       await updateDoc(doc(db, 'usersChats', String(user.uid)),
+        {
+       
+         [combineId + ".userinfo"]: {
+           uid: currentUser.uid,
+          
+           displayName: currentUser.displayName,
+           photoURL: currentUser.photoURL,
+              email:currentUser.email,
+              status:"online",
+             
+              
+            
+         
+
+
+         },
+         [combineId + ".date"]: serverTimestamp()
+         
+       });
+
+      }
+    }
+    catch (err) {
+      
       console.log(err);
       console.log("jjnjnjj");
-    }
-
+    
+  }
+  
 
 
 
@@ -213,22 +328,23 @@ console.log('time:',time);
     // setText(" ");
 
 
-    console.log(user.displayName);
-   
+    
 
 
     setUserName("");
     setUser(null);
 
     console.log("chdhhf");
+   
 
     //console.log(chat[1].userinfo.displayName)
 
   }
   var k = 1;
-  const handleSelet = (u) => {
-
+  const handleSelet = async(u) => {
+   
     dispatch({ type: 'CHANGE_USER', payload: u })
+    
   }
   return (
 
@@ -264,7 +380,10 @@ console.log('time:',time);
           //  setPhoneView1(true)
           }}>
 
-            <div class="photo" style={{ backgroundImage: `url(${user.photoURL})` }}>
+            <div class="photo" style={{ backgroundImage: `url(${user.photoURL})` }} onClick={() => {
+            handleSelet(user.displayName)
+          //  setPhoneView1(true)
+          }}>
 
               <div class="online">
 

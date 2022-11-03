@@ -39,13 +39,15 @@ const Login=()=>{
       console.log("shhs");
       setSign(!sign);
       await signInWithEmailAndPassword(auth, Email, Password)
-   
+      
       setLoading(!loading)
        setSign(sign);
+     
      
     //  setLoading(!loading);
       console.log("Ss");
       navigate('/')
+      
        /*res.then((userCredential) => {
          // Signed in 
           const user = userCredential.user;
