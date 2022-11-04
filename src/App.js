@@ -29,7 +29,7 @@ const HideHome=({children})=>{
 
   return (
   <>
-  <Dictaphone1></Dictaphone1>
+ 
   <BrowserRouter>
   <Routes>
    

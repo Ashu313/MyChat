@@ -57,7 +57,7 @@ console.log(firebaseDate.seconds);
 
   <>
 
-    <p style={{margin:'25px 25px 25px 25px' ,color:'white',textAlign:'center'}}>{timestamp}</p>
+    <p style={{margin:'25px 25px 25px 25px' ,color:'white',textAlign:'center'}}>{date.toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'})}</p>
   <div   role='textbox'ref={re1f} className={`message1-chat ${message.senderId===currentUser.uid&&"owner"}`} >
   <div className='aside'>
   <div className='cont'>

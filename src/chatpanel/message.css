@@ -89,6 +89,7 @@
     position: relative;
     left: 40%;
     height: auto;
+    padding-bottom: 30px;
     box-shadow: rgb(149 157 165 / 20%) 20px 20px 24px;
 }
 .flex{

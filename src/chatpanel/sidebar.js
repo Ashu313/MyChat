@@ -368,8 +368,8 @@ console.log(k2);
 
 
       <div class="discussion search">
-        <div class="searchbar" >
-          <i class="fa-solid fa-magnifying-glass"></i>
+        <div class="searchbar" onClick={handleSearch}>
+          <i class="fa-solid fa-magnifying-glass" style={{cursor:'pointer'}} ></i>
           <input type="text" placeholder="Search by name...." value={username} onKeyDown={handleKey} onChange={(e) => setUserName(e.target.value)}></input>
         </div>
       </div>
