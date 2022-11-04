@@ -34,6 +34,15 @@
     height: 70px;
     box-shadow: rgb(149 157 165 / 20%) 20px 20px 24px;
 }
+.message1-chat.false{
+    height: 80px;
+}
+.message-chat1.owner{
+    height: auto;
+}
+.message1-chat.false{
+    height: auto;
+}
 .message-chat{
     position: absolute;
     width:60%
@@ -46,17 +55,31 @@
     padding: 0.5rem;
     border-radius: 10px;
     width: 50%;
+    height: 80px;
     margin-bottom: 10px;
+   
     box-shadow: rgb(149 157 165 / 20%) 20px 20px 24px;
 }
 .message img{
     width: 28px;
     height: 28px;
 }
+  
+
+.set_date.false{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: black;
+}
+
+
 .active1
 {
    background-color: green;
    display: contents;
+   margin-top: -10px;
+   font-size: 14px;
 }
 
 .owner{
@@ -65,6 +88,7 @@
     overflow: hidden;
     position: relative;
     left: 40%;
+    height: auto;
     box-shadow: rgb(149 157 165 / 20%) 20px 20px 24px;
 }
 .flex{

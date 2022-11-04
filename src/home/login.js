@@ -38,10 +38,14 @@ const Login=()=>{
     try{
       console.log("shhs");
       setSign(!sign);
-      await signInWithEmailAndPassword(auth, Email, Password)
+      const res=await signInWithEmailAndPassword(auth, Email, Password)
       
       setLoading(!loading)
+      await updateDoc(doc(db,'users',res.user.uid),{
+        status:'online'
+   })
        setSign(sign);
+   
      
      
     //  setLoading(!loading);

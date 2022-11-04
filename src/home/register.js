@@ -31,58 +31,54 @@ const  Register=() => {
         const CnfPassword=e.target[3].value;
         console.log(CnfPassword);
         const file=e.target[4].files[0];
+      
         if(Password===CnfPassword)
         {
             setLoader(!loader);
-        const res=await createUserWithEmailAndPassword(auth,Email,Password);
-        const date=new Date().getTime();
+        
 
 
       //  setLoader(loader);
       
         try{
+          const res=await createUserWithEmailAndPassword(auth,Email,Password);
+        const date=new Date().getTime();
           const storageRef=ref(storage,`${DisplayName+date}`);
            await uploadBytesResumable(storageRef, file).then(()=>{
             getDownloadURL(storageRef).then(async(DownloadURL)=>{
-          try{
-            await updateProfile(res.user,{
-              displayName:DisplayName,
-           
-              photoURL:DownloadURL,
-            });
-            await setDoc(doc(db, 'users',( res).user.uid), {
+         
+            await setDoc(doc(db, 'users', res.user.uid), {
               uid:( res).user.uid,
                  displayName:DisplayName, 
                email:Email,
                photoURL:DownloadURL,
-               isOnline:true,
                status:'online',
              
             
                
                });
+            await updateProfile(res.user,{
+              displayName:DisplayName,
+           
+              photoURL:DownloadURL,
+            });
+          
           
                await setDoc(doc(db, 'usersChats',( res).user.uid), {})
                navigate('/');
-            
-              }
-          
-          catch(error) {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            setErr(true);
-            console.log(errorMessage);
-            
 
+          })
+        })
+            
           }
-            });
-          });
+          
+     
         
            
            
             // ...
           
-        }
+        
         catch(error) {
           const errorCode = error.code;
           const errorMessage = error.message;
@@ -164,6 +160,8 @@ const  Register=() => {
               <i class="fas fa-lock"></i>
             </div>
           </div>
+       
+     
 
           <div class="check">
             <input type="checkbox" name="" id=""/>
@@ -190,3 +188,4 @@ const  Register=() => {
 
 
 export default Register;
+

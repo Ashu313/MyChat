@@ -555,6 +555,12 @@ i{
   .fa-solid.fa-arrow-left{
     display: none;
   }
+  .set_date.active1 p{
+    color:orangered;
+    font-size: 14px;
+    
+   
+  }
   .set_date{
    position: absolute;
     right: 0;

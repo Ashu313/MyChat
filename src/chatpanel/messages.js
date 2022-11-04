@@ -23,6 +23,11 @@ import LastStatusProvider from "react-last-status";
 import { Detector } from "react-online-status";
 import { Offline } from 'react-online-status';
 import { Online } from 'react-online-status';
+import { collection } from "firebase/firestore";
+
+import { where } from "firebase/firestore";
+import { query } from "firebase/database";
+
 
 
 const Messages=({setPhonvView})=>{
@@ -31,8 +36,11 @@ const Messages=({setPhonvView})=>{
 
   
     const [messages,setMessages]=useState([]);
+    const [user,setUser]=useState([]);
     const { data } = useContext(ChatContext);
+    
     const [text,setText]=useState("");
+   // const [user,setUser]=useState(null);
   
    // const {data}=useContext(ChatContext);
     const [activeChat,setActiveChat]=useState(false);
@@ -40,12 +48,28 @@ const Messages=({setPhonvView})=>{
 const setPhoneView1=()=>{
   setPhone(!phone)
 }
-    
-    const {currentUser}=useContext(AuthContext)
-   
-    const set=()=>{
-      setActiveChat(!activeChat);
-    }
+const {currentUser}=useContext(AuthContext)
+
+
+
+/*useEffect(() => {
+  const usersRef = collection(db, "users");
+  // create query object
+  const q = query(usersRef, where("uid", "not-in", [auth.currentUser.uid]));
+  // execute query
+  const unsub = onSnapshot(q, (querySnapshot) => {
+    let user = [];
+    querySnapshot.forEach((doc) => {
+      user.push(doc.data());
+    });
+    setUser(user);
+  });
+  return () => unsub();
+}, []);
+*/
+  
+
+    console.log(user);
 
     useEffect(() => {
       const unSub = onSnapshot(doc(db, "chats", data.chatId), (doc) => {
@@ -57,6 +81,7 @@ const setPhoneView1=()=>{
         unSub();
       };
     }, [data.chatId]);
+
 
     return(
       
@@ -74,7 +99,9 @@ const setPhoneView1=()=>{
                   
     <Offline >{new Date().toDateString()+' '+new Date().toLocaleTimeString()}</Offline>
   </div>
+   
             <p className="status">{data.user.status}</p>
+   
             <div>
  </div>
     

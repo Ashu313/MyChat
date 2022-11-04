@@ -58,7 +58,7 @@ console.log(firebaseDate.seconds);
   <>
 
     <p style={{margin:'25px 25px 25px 25px' ,color:'white',textAlign:'center'}}>{timestamp}</p>
-  <div  ref={re1f} className={`message1-chat ${message.senderId===currentUser.uid&&"owner"}`} >
+  <div   role='textbox'ref={re1f} className={`message1-chat ${message.senderId===currentUser.uid&&"owner"}`} >
   <div className='aside'>
   <div className='cont'>
   <div className='message' >
@@ -74,13 +74,13 @@ console.log(firebaseDate.seconds);
   {message.img&&<img src={message.img}alt=""/>}
     <div className='box'>
 
-    
- <p style={{lineBreak:'anywhere',marginLeft:'10px'}}>{message?.text}</p>
+  
+ <p  style={{lineBreak:'anywhere',marginLeft:'10px'}}>{message?.text}</p>
 
   {message.text!=""&&message.senderId===currentUser.uid?<i class="fa-solid fa-microphone" onClick={() => speak({ text: message.text})} style={{color:"red",position:"absolute",right:'0px',bottom:'20px'}}></i>:<i class="fa-solid fa-microphone" onClick={() => speak({ text: message.text})} style={{color:"red"}}></i>}
   
   <div  className={`set_date ${message.senderId!=currentUser.uid&&"active1"}`}>
-  <p style={{marginLeft:'40px',textAlign:'end',fontSize:'14px'}}>{ message.senderId===currentUser.uid?date.toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'}):date.toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'})}</p>
+  <p >{ message.senderId===currentUser.uid?date.toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'}):date.toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'})}</p>
   </div>
   </div>
     
