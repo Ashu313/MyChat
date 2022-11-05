@@ -8,6 +8,7 @@ export const AuthContext=createContext();
 
 const  ContextApi=({children})=>{
     const [currentUser,setCurrentUser]=useState({});
+    
     useEffect(()=>{  ///this a real time messaging hence we need to refresh the useffect otherwise it will cause memory leak
      onAuthStateChanged(auth,(user)=>{
         setCurrentUser(user);
