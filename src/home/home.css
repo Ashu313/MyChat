@@ -523,10 +523,18 @@ i{
   }
   
   .butt{
-    position: absolute;
-  /* bottom: 0; */
+    
+ /* bottom: 0; */
+ position: relative;
+ padding: 3rem;
+
+
   top: 0;
   right: 0;
+  }
+  .butt button{
+    background-color: green;
+    color: white;
   }
   .image img{
    width: 100%;
