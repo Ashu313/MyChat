@@ -19,6 +19,7 @@ import { useSpeechRecognition } from 'react-speech-kit';
 import { useSpeechSynthesis } from 'react-speech-kit';
 
 
+
 //rafe
 const MessagePanel1 = ({message}) => {
   
@@ -30,6 +31,7 @@ const re1f=useRef();
 useEffect(()=>{
   re1f.current?.scrollIntoView({behavior:'smooth'})
 },[message])
+
 
 const{data}=useContext(ChatContext);
  console.log(data.user.displayName);
@@ -47,8 +49,12 @@ console.log(firebaseDate.seconds);
  const { speak } = useSpeechSynthesis();
 //currentUser
 
+const month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 
-    
+const d = new Date();
+let name = month[d.getMonth()];
+    console.log(d[6])
+    const date1=new Date().toLocaleDateString('en-us', { weekday:"long", month:"short", day:"numeric"}) ;
 
  return (
    
@@ -56,8 +62,8 @@ console.log(firebaseDate.seconds);
 
 
   <>
-
-    <p style={{margin:'25px 25px 25px 25px' ,color:'white',textAlign:'center'}}>{date.toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'})}</p>
+   
+    <p style={{margin:'25px 25px 25px 25px' ,color:'white',textAlign:'center'}}>{new Date().toLocaleDateString('en-us', { weekday:"long", month:"short", day:"numeric"})},   {date.toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'})}</p>
   <div   role='textbox'ref={re1f} className={`message1-chat ${message.senderId===currentUser.uid&&"owner"}`} >
   <div className='aside'>
   <div className='cont'>

@@ -66,6 +66,8 @@ const Chats = ({setPhoneView1,message}) => {
 
 
 
+
+
 //console.log(chat[1].userinfo.displayName)
 
 
@@ -229,7 +231,7 @@ let count =0;
   console.log(chats[1].userinfo);
       handleSelet(chats[1].userinfo)
       setPhoneView1(false)
-    
+     
      
       
     }}>
@@ -249,7 +251,7 @@ let count =0;
         <p class="message">{chats[1].lastmessage?.text}</p>
      
       </div>
-      <p style={{color:'white'}} >{chats[1].lastmessage?`${count++}`:"bd"}</p>
+
       <div class="timer" style={{color:'black'}}>{lastSeenAgo.getLastSeen(chats[1].date===Timestamp?"heheheh":chats[1].date?.date)}</div>
     </div>
    

@@ -25,6 +25,7 @@ import { getFirestore } from 'firebase/firestore';
 import { database } from '../Firebase';
 import { update } from 'firebase/database';
 import { getDatabase, ref, onDisconnect } from "firebase/database";
+import { useRef } from 'react';
 
 
 
@@ -37,6 +38,7 @@ const Sidebar = ({ setPhoneView1 }) => {
   const [username, setUserName] = useState('');
   const { currentUser } = useContext(AuthContext);
   console.log(currentUser.uid);
+  const[user1,setUser1]=useState(null)
   const [chat, setChat] = useState([]);
   const [online,setOnline]=useState(false);
   const { data } = useContext(ChatContext);
@@ -66,6 +68,28 @@ console.log(data.user.uid);
         updateDoc(docRef, data)
         console.log('update hua')
       }
+
+     /* useEffect(() => {
+      const usersRef = collection(db, "users");
+      // create query object
+      const q = query(usersRef, where("uid", "not-in", [auth.currentUser.uid]));
+      // execute query
+      const unsub = onSnapshot(q, (querySnapshot) => {
+        let user1 = [];
+        querySnapshot.forEach((doc) => {
+          user1.push(doc.data());
+        });
+        setUser1(user1);
+      
+      });
+      
+     // currentUser.uid&&getChat();
+      
+      return () => unsub();
+      //}
+    
+    }, [])
+    console.log(user1);*/
       { 
      
        /* useEffect(()=>{
@@ -105,24 +129,18 @@ console.log(data.user.uid);
   //const{dispatch}=useContext(ChatContext)
 
 let k11;
-  useEffect(() => {
-    const getChats = () => {
-      console.log("jnd");
+ /* useEffect(() => {
+    const docRef = doc(db, "users", `${currentUser.uid}`);
+      console.log(docRef);
+        const data = {
+          
+          status:new Date().toDateString()+' '+new Date().toLocaleTimeString(),
+        };
+        updateDoc(docRef, data)
+        console.log('update hua')
       
-      const refresh = onSnapshot(doc(db, 'usersChats', currentUser.uid), (doc1) => {
-     // console.log('current-data', (Object.entries(Object.entries(doc.data()))[0][1])[1].userinfo.status);
-        setChat(doc1.data());
-    
-        //console.log((Object.entries(Object.entries(doc.data()))[0][1])[1].userinfo.status);
-      });
 
-      return () => {
-        refresh();
-      }
-    };
-    currentUser.uid && getChats();
-
-  }, [currentUser.uid]);
+  }, []);*/
 
  
  
@@ -137,17 +155,15 @@ let k11;
 
   
     try{
- // console.log(docRef);
- const refresh=onSnapshot(doc(db,'usersChats',String(currentUser.uid)),(doc1)=>{
-
-  setChat(doc.data());
-
-  return()=>{
-    refresh();
-  }
- })
  
- 
+      const docRef = doc(db, "users", `${currentUser.uid}`);
+      console.log(docRef);
+        const data = {
+          
+          status:new Date().toDateString()+' '+new Date().toLocaleTimeString(),
+        };
+        updateDoc(docRef, data)
+        console.log('update hua')
  }
     
 catch(error) {
@@ -183,7 +199,24 @@ console.log(k2);
         setUser(doc.data());
 
         console.log(doc.uid, doc.data());
+        const usersRef = collection(db, "users");
+        const q = query(usersRef, where("uid", "not-in", [auth.currentUser.uid]));
+        // execute query
+        const unsub = onSnapshot(q, (querySnapshot) => {
+          let user1 = [];
+          querySnapshot.forEach((doc) => {
+            user1.push(doc.data());
+          });
+          setUser1(user1);
+        
+        });
+        console.log(user1)
 
+        return()=>{
+          unsub();
+        }
+
+    
 
       });
     }
@@ -199,6 +232,8 @@ console.log(k2);
 
   const handleSelectUser =   async() => {
     
+    
+
     const combineId = currentUser.uid > user.uid ? currentUser.uid + user.uid : user.uid + currentUser.uid;
     const res = await getDoc(doc(db, 'chats', combineId));
     console.log(res);

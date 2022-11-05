@@ -71,7 +71,7 @@ body {
     width: 100%;
     height: 90px;
    
-    border-bottom: solid 1px #E0E0E0;
+   /* border-bottom: solid 1px #E0E0E0;*/
     display:flex;
     align-items: center;
     cursor: pointer;
@@ -172,7 +172,8 @@ body {
     width: 50%;
      box-shadow: 0px 8px 10px rgba(0,0,0,0.20);
      overflow: hidden;
-     background:rgba(34, 47, 62,1.0);
+     
+      background-image:url(https://img.freepik.com/free-photo/navy-blue-concrete-wall-with-scratches_53876-102666.jpg?w=996&t=st=1667657110~exp=1667657710~hmac=1079728f10cc9581b0ddb653bad0668b0a8aa935d94eec24c8caed64bb47aaab);
      
      display: inline-block;
    }
@@ -181,7 +182,7 @@ body {
      width: 100%;
      height: 90px;
     
-     border-bottom: solid 1px #E0E0E0;
+    border-bottom: solid 1px #E0E0E0;
      display:flex;
      align-items: center;
      cursor: pointer;
@@ -232,7 +233,7 @@ body {
      width: 100%;
      height: 90px;
   
-     border-bottom: solid 1px #E0E0E0;
+    border-bottom: solid 1px #E0E0E0;
    }
    
    .discussions1 .discussion .photo {
@@ -241,7 +242,7 @@ body {
        width: 45px;
        height: 45px;
        background: #E6E7ED;
-     
+       border-radius: 25px;
        background-position: center;
        background-size: cover;
        background-repeat: no-repeat;
@@ -307,7 +308,7 @@ body {
     width: calc(65% - 85px);
     overflow: scroll;
     position: relative;
-    background-color: black;
+    background-image:url(https://img.freepik.com/free-vector/mandala-illustration_53876-75291.jpg?w=996&t=st=1667655513~exp=1667656113~hmac=7b26decfe65722999cd6f6616c583f3b2639d8063c9718923a72572b0b15dc05)
   }
   
   .header-chat {
@@ -343,7 +344,7 @@ body {
   .chat .messages-chat {
   
     overflow-x: hidden;
-    height: 450px;
+  height: 500px;
     display: initial;
     position: absolute;
   width: 100%;  }
@@ -372,7 +373,8 @@ body {
     border-radius: 12px;
   }
   .chat.active{
-    background: #161b22;
+    /*background: #161b22;*/
+    background-image:url(https://img.freepik.com/free-vector/mandala-illustration_53876-75291.jpg?w=996&t=st=1667655513~exp=1667656113~hmac=7b26decfe65722999cd6f6616c583f3b2639d8063c9718923a72572b0b15dc05)
   }
   .text-only {
     margin-left: 45px;

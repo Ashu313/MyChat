@@ -19,6 +19,8 @@ import Dictaphone from '../home/microphone'
 import useSpeechToText from 'react-hook-speech-to-text';
 import { useSpeechRecognition } from 'react-speech-kit';
 import { useSpeechSynthesis } from 'react-speech-kit';
+import { useRef } from 'react'
+
 
 
 //rafe
@@ -42,6 +44,8 @@ const Input = ({chat1}) => {
       setText(result);
     },
   });
+
+
 
   console.log(data.user.displayName);
   
@@ -125,7 +129,7 @@ const Input = ({chat1}) => {
       [data.chatId+'.date']:{
         date:Timestamp.now().seconds
       },
-  
+    
       });
       console.log("dhdhhd");
    
@@ -147,7 +151,7 @@ const Input = ({chat1}) => {
 
 
 
-
+console.log(data.user.uid)
     
 
  return (
@@ -175,7 +179,7 @@ const Input = ({chat1}) => {
          {chat1 && <input type="file"   id='input' style={{cursor:'pointer', marginRight:'6px' }} onChange={(e)=>setFile((e.target.files[0]))
            }/>}
  
-        {chat1 &&text&& <i class="fa-solid fa-paper-plane" style={{cursor:'pointer',marginRight:'6px' }} onClick={handleSend}></i>}
+        {chat1 &&text&& <i class="fa-solid fa-paper-plane" style={{cursor:'pointer',marginRight:'6px' }}  onClick={handleSend}/>}
           
         {chat1 &&<i class="fa-solid fa-volume-high" style={{cursor:'pointer' ,marginRight:'6px'}}onClick={() => speak({ text: text })}></i>}
        

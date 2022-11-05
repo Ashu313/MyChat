@@ -17,6 +17,7 @@ const  Register=() => {
 
  
     const [err,setErr]=useState(false);
+   // const[user,setUser]
     const [loader,setLoader]=useState(false);
     const navigate=useNavigate();
 
@@ -53,7 +54,7 @@ const  Register=() => {
                email:Email,
                photoURL:DownloadURL,
                status:'online',
-             
+               isOnline:true,
             
                
                });
@@ -62,7 +63,8 @@ const  Register=() => {
            
               photoURL:DownloadURL,
             });
-          
+           
+
           
                await setDoc(doc(db, 'usersChats',( res).user.uid), {})
                navigate('/');

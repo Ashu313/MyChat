@@ -51,8 +51,11 @@ const setPhoneView1=()=>{
 const {currentUser}=useContext(AuthContext)
 
 
-
+//console.log(auth.currentUser.uid);
 /*useEffect(() => {
+ // const getChat=()=>{
+
+  
   const usersRef = collection(db, "users");
   // create query object
   const q = query(usersRef, where("uid", "not-in", [auth.currentUser.uid]));
@@ -63,13 +66,20 @@ const {currentUser}=useContext(AuthContext)
       user.push(doc.data());
     });
     setUser(user);
+  
   });
+  
+ // currentUser.uid&&getChat();
+  
   return () => unsub();
-}, []);
-*/
+  //}
+
+}, [currentUser.uid])*/
+
   
 
     console.log(user);
+  
 
     useEffect(() => {
       const unSub = onSnapshot(doc(db, "chats", data.chatId), (doc) => {
@@ -90,17 +100,17 @@ const {currentUser}=useContext(AuthContext)
         <div class="header-chat">
           <i class="icon fa fa-user-o"></i>
     
-        
+     
          <div className='photo1'>
             {data.user.photoURL&&<img src={data.user.photoURL} class='image1' />}
             <div className="flex-col">
             <h2 class="name">{data.user.displayName}</h2>
-            <div style={{color:'green'}}>
-                  
-    <Offline >{new Date().toDateString()+' '+new Date().toLocaleTimeString()}</Offline>
-  </div>
-   
-            <p className="status">{data.user.status}</p>
+   {
+    
+      <p className="status">{data.user.status}</p>
+    
+   }
+           
    
             <div>
  </div>
