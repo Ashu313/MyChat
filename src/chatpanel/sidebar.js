@@ -404,21 +404,21 @@ console.log(k2);
 
       <div class="discussion search">
         <div class="searchbar" onClick={handleSearch}>
-          <i class="fa-solid fa-magnifying-glass" style={{cursor:'pointer'}} ></i>
-          <input type="text" placeholder="Search by name...." value={username} onKeyDown={handleKey} onChange={(e) => setUserName(e.target.value)}></input>
+          <i class="fa-solid fa-magnifying-glass" style={{cursor:'pointer',color:'black',marginLeft:'-15px',fontSize:'18px'}} ></i>
+          <input type="text" placeholder="Search by email...." value={username} onKeyDown={handleKey} onChange={(e) => setUserName(e.target.value)}></input>
         </div>
       </div>
       {user &&
         <div class="discussion message-active" onClick={handleSelectUser}>
           <div class="desc-contact" style={{ display: 'flex', gap: '1rem' }} onClick={() => {
             handleSelet(user.displayName)
-          //  setPhoneView1(true)
+           // setPhoneView1(true)
           }}>
 
-            <div class="photo" style={{ backgroundImage: `url(${user.photoURL})` }} onClick={() => {
-            handleSelet(user.displayName)
-          //  setPhoneView1(true)
-          }}>
+            <div class="photo" style={{ backgroundImage: `url(${user.photoURL})` }} onClick={setPhoneView}
+          //  handleSelet(user.displayName)
+           //setPhoneView1(true)
+          >
 
               <div class="online">
 
@@ -441,11 +441,11 @@ console.log(k2);
 
 
 
-
+  {  console.log('hua')}
       
-      {chat && <Chats setPhoneView1={setPhoneView1} />}
+      {chat&&<Chats setPhoneView1={setPhoneView1} />}
 
-
+{console.log('phirhua')}
 
 
     </section>

@@ -1,0 +1,64 @@
+.project-us-container{
+    overflow-x: auto;
+    word-break: break-all;
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+.project-us-detail{
+
+    display: flex;
+   
+     gap: 2rem;
+     margin-top: 10%;
+   
+ }
+ .project-myself{
+     display: flex;
+     flex: 1 1 42rem;
+     justify-content: center;
+     margin-top: 8%;
+ }
+ .project-myself h1{
+    font-size: 40px;
+ }
+ .project-us-detail .image{
+    margin-top: 8%;
+  /*   flex: 1 1 42rem;*/
+     padding: 1rem;
+     
+ }
+ .project-myself .title_flex{
+    text-align: center;
+ }
+ .image-font{
+   
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5rem;
+        justify-content: center;
+     
+       
+    
+ }
+ .image1 img{
+    width: 100%;
+    border-radius: 0px;
+    cursor: pointer;
+    height: auto;
+}
+ 
+ .project-us-detail .image1{
+    order: 2;
+   
+    padding: 1rem;
+ }
+ p{
+    color: white;
+ }
+ @media screen and (max-width:800px) {
+    
+    .project-us-detail{
+        flex-wrap: wrap;
+    }
+ }

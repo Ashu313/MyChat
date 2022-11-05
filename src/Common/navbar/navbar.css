@@ -1,0 +1,374 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap');
+:root{
+ --orange:#ffa500;
+}
+
+
+body{
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+html{
+   
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-padding-top: 6rem;
+  scroll-behavior: smooth;
+
+}
+
+header{
+  position: fixed;
+  top:0;
+   left: 0;
+    right:0;
+    z-index: 1000;
+   
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+ 
+}
+ header .navbar{
+  color: white;
+  font-size: 16px;
+  padding:2rem 2rem ;
+  display: initial;
+  margin-left: 0;
+  margin-right: 0;
+ }
+
+ header .navbar a{
+  color: white;
+  margin-right:20px;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  padding: 1.5rem;
+
+ }
+ header .navbar a:hover{
+  color: orange;
+}
+
+.nav-links-mobile{
+  display: none;
+}
+
+.header .navbar .active{
+  opacity: 1;
+}
+.menu-icons{
+  display: none;
+  color: white;
+}
+
+#user{
+  margin-left: 20%;
+}
+.log img{
+  width: 100%;
+  height: 100%;
+  flex-wrap: wrap;
+  object-fit: cover;
+}
+.menu-icons i{
+
+ 
+    color:#fff;
+    cursor: pointer;
+    margin-right: 2rem;
+}
+.container{
+  display: flex;
+  font-weight: 100;
+  opacity: 0.8;
+  font-size: 16px;
+  color: #fff;
+ text-decoration: none;
+ 
+ margin-left: 5%;
+ 
+  
+}
+
+.container-fluid{
+  margin-top: 6%;
+  flex-wrap: wrap;
+  
+}
+.container i{
+  margin: 0 5px 0 15px;
+  font-size: 13px;
+  color: #fff;
+  
+}
+header .login-area{
+  color: white;
+  font-size: 35px;
+  margin-top: 2%;
+}
+header .login-area a{
+ margin-left: -100%;
+ color: white;
+ text-decoration: none;
+}
+
+
+header .register-area{
+  color: white;
+  font-size: 35px;
+
+ 
+  
+}
+header .register-area a{
+  color: white;
+  font-size: 35px;
+  margin-left: -50%;
+  
+ text-decoration: none;
+}
+
+header .contact{
+  color: white;
+  font-size: 35px;
+
+  
+}
+
+
+
+.navbar a{
+  font-size: 2.5rem;
+}
+header .contact a{
+  color: white;
+  font-size: 18px;
+  margin-top: 0;
+  margin-left: 4%;
+  
+ text-decoration: none;
+}
+header .contact button{
+  padding: 1rem 3rem;
+background-color: green;
+cursor: pointer;
+}
+header .login-area a:hover{
+  color: orange;
+}
+header .register-area a:hover{
+  color: orange;
+}
+header .contact a:hover{
+  color: orange;
+}
+.nav-menu1{
+  display: flex;
+}
+
+.container-fluid{
+  justify-content: center;
+
+  
+}
+.flex_space{
+  display: flex;
+}
+@media screen and (max-width: 942px)
+  {
+
+    /*header{
+        position: absolute;
+        display: none;
+    }*/
+     .menu-icons{
+
+      display: block;
+      position: absolute;
+      top: 0;
+     
+      font-size: 2.5rem;
+      cursor: pointer;
+      margin-left:3%;
+     
+     }
+     .fa-times {
+      font-size: 3.5rem;
+    }
+
+    .nav-menu{
+      display: none;
+    }
+    .nav-menu1.active{
+      display: none;
+    }
+    header .navbar{
+      text-align: center;
+      display: block;
+      width: 100%;
+     
+      
+      top: 80px;
+      left: -100%;
+      opacity: 1;
+      transition: all 0.5s ease;
+
+    }
+    header .navbar a{
+      display: block;
+      padding: 1.7rem;
+      font-size: 16px;
+      background: lightsteelblue;
+    
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+  
+    margin: 1.5rem 0;
+    }
+    .container{
+    
+        position: absolute;
+        right: 0px;
+        
+      
+    }
+    
+    header .navbar .active{
+      text-align: center;
+     
+      left: 0;
+      right: 0;
+      width: 100%;
+      display: block;
+      opacity: 1;
+    
+      transition: all 0.5s ease;
+      z-index: 100;
+      
+    }
+
+
+    .d.active{
+      display: none;
+    }
+   
+  }
+
+
+
+  
+  @media screen and (max-width:667px){
+
+   
+    .container{
+      display: block;
+  margin-left: 40px;
+      justify-content: space-between;
+    }
+    .container.active{
+     z-index: -1;
+    }
+    .container .login-area{
+      font-size:16px;
+      
+     
+      
+    }
+
+   .navbar a{
+    font-size: 16px;
+   }
+    .container .register-area{
+      font-size: 16px;
+     
+    }
+    /*.container .contact{
+      font-size: 20px; 
+
+    }*/
+  }
+
+  @media screen and (max-width:300px){
+    .container{
+      display: flex;
+      text-align: end;
+    }
+    .container .login-area{
+      font-size:14px;
+     margin-left: 35%;
+      
+    }
+    .container .register-area{
+      font-size: 24px;
+      margin-left: 10%;
+    }
+    .container .contact{
+      font-size: 24px; 
+      margin-right: 4%;
+    }
+
+  }
+/* detauils*/
+
+
+
+.box{
+  margin:  0 0 0 30px;
+  margin-left: auto;
+  margin-right: auto;
+  
+ 
+}
+.contact-details .box {
+  align-items: center;
+  margin-left: unset;
+
+}
+.logo{
+  display: flex;
+  justify-content: center;
+  padding: 3rem 2rem;
+  margin-top: -1%;
+ 
+}
+.logo img{
+  width: 100%;
+  height: 100%;
+  flex-wrap: wrap;
+  
+  
+  object-fit: cover;
+
+}
+.flex_space{
+  display: flex;
+ 
+}
+.text h3{
+  font-size: 20px;
+}
+.text a{
+  font-size:16px;
+  color: grey;
+}
+i{
+  font-size: 40px;
+  color: #31b675;
+  margin-right: 15px;
+}
+.text{
+  margin-top: 10px;
+}
+.contact-details {
+display: flex;
+flex-wrap: wrap;
+position: inherit;
+}

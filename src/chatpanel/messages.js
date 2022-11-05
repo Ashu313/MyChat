@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import React, { useState } from 'react'
 
 
-import { signOut } from 'firebase/auth'
+import { PhoneAuthProvider, signOut } from 'firebase/auth'
 import { auth, db } from '../Firebase'
 import { useContext } from 'react'
 import  { AuthContext } from '../contextApi/contextapi'
@@ -96,8 +96,8 @@ const {currentUser}=useContext(AuthContext)
     return(
       
       <section class={phone?'chat':'chat active'}  >
-        <i class={phone?'fa-solid fa-arrow-left':'fa-solid fa-arrow-left'} onClick={setPhoneView1}></i>
         <div class="header-chat">
+        <i class={phone?'fa-solid fa-arrow-right':'fa-solid fa-arrow-right'} style={{position:'absolute',right:'0px',fontSize:'20px'}}onClick={setPhoneView1}></i>
           <i class="icon fa fa-user-o"></i>
     
      

@@ -1,0 +1,78 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap');
+:root{
+ --orange:#ffa500;
+}
+
+
+
+ *{
+    
+     font-family: 'Nunito', sans-serif;
+   
+    
+     transition: all 0.2s linear;
+ }
+ *::selection{
+     background:var(--orange);
+   
+     color: white;
+ }
+
+
+
+html{
+
+  overflow-x: hidden;
+  scroll-padding-top: 6rem;
+  scroll-behavior: smooth;
+  background: url(https://img.freepik.com/free-vector/gradient-abstract-background_23-2149131343.jpg?w=996&t=st=1667669025~exp=1667669625~hmac=42b3be89e2f1532721524abf4e19d8dac96591470eb9925b37a3a9105c5e4b72) no-repeat 
+    center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+}
+
+
+.space{
+  display: none;
+}
+#Achieve h1{
+  text-align: center;
+  padding: 64px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.heading span {
+  font-size: 50px;
+  color: orange;
+  border-radius: 8px;
+  background: rgba(255, 165, 0,.2);
+  padding: 2px 2px;
+}
+
+@media screen and (max-width:450px) {
+  .heading span{
+    font-size: 30px;
+    padding: 4px 2px;
+  }
+  #Achieve {
+    text-align: center;
+    padding: 64px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+}
+
+
+i:hover{
+  color: palevioletred;
+}

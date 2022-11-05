@@ -222,7 +222,7 @@ let count =0;
 
     <>
     
-    <section className='discussions'style={{width:'100%'}}>
+    <section className={setPhoneView1?'discussions': 'discussions1 active'}style={{width:'100%'}}>
 
     {  Object.entries(chat)?.sort((a,b)=>a[1].date?.date-b[1].date?.date).map((chats)=>(
     
@@ -230,7 +230,7 @@ let count =0;
     <div class='discussion' key={chats[0]} /*onClick={()=>handleSelet(chats[1].userinfo)} */ onClick={() => {
   console.log(chats[1].userinfo);
       handleSelet(chats[1].userinfo)
-      setPhoneView1(false)
+     setPhoneView1(false)
      
      
       

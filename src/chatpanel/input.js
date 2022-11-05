@@ -170,30 +170,30 @@ console.log(data.user.uid)
 <p style={{color:'white',textAlign:'center',color:'chartreuse' ,marginTop:'-30px'}}>{text?`${data.user.displayName} is typing..`:''}</p>
           <div class="footer-chat">
         
-          {chat1 &&<i class="fa-solid fa-face-smile"  onClick={() => setShowPicker((val) => !val)} style={{cursor:'pointer' ,position:'absolute',left:'10px',}}></i>}
+          {chat1 &&<i class="fa-solid fa-face-smile"  onClick={() => setShowPicker((val) => !val)} style={{cursor:'pointer' ,position:'absolute',left:'-10px',fontSize:'20px'}}></i>}
         <div className='cc'>
 
         {chat1 &&<textarea type="text" class="write-message" placeholder="message here..." value={text}  onChange={(event)=>setText(event.target.value)}  cols={30} /> }
           
           </div>
-         {chat1 && <input type="file"   id='input' style={{cursor:'pointer', marginRight:'6px' }} onChange={(e)=>setFile((e.target.files[0]))
+         {chat1 && <input type="file"   id='input' style={{cursor:'pointer', marginRight:'6px',fontSize:'20px'}} onChange={(e)=>setFile((e.target.files[0]))
            }/>}
  
-        {chat1 &&text&& <i class="fa-solid fa-paper-plane" style={{cursor:'pointer',marginRight:'6px' }}  onClick={handleSend}/>}
+        {chat1 &&text&& <i class="fa-solid fa-paper-plane" style={{cursor:'pointer',marginRight:'6px',fontSize:'20px' }}  onClick={handleSend}/>}
           
-        {chat1 &&<i class="fa-solid fa-volume-high" style={{cursor:'pointer' ,marginRight:'6px'}}onClick={() => speak({ text: text })}></i>}
+        {chat1 &&<i class="fa-solid fa-volume-high" style={{cursor:'pointer' ,marginRight:'6px',fontSize:'20px'}}onClick={() => speak({ text: text })}></i>}
        
-         {chat1 && <i class="fa-solid fa-microphone" onMouseDown={listen} onMouseUp={stop} style={{cursor:'pointer',marginRight:'6px'}}></i>}
+         {chat1 && <i class="fa-solid fa-microphone" onMouseDown={listen} onMouseUp={stop} style={{cursor:'pointer',marginRight:'6px',fontSize:'20px'}}></i>}
          {listening && <div>⏺️</div>}
         
 
          
           {chat1 &&<div className='label'>
             <label className='image-upload' htmlFor='input'>
-            <i class="fa-solid fa-file" style={{marginRight:'6px'}}  ></i>
+            <i class="fa-solid fa-file" style={{marginRight:'6px',fontSize:'20px'}}  ></i>
             </label>
           </div>}
-          {img &&<i class="fa-solid fa-paper-plane" style={{cursor:'pointer',marginRight:'6px' }} onClick={handleSend}></i>}
+          {img &&<i class="fa-solid fa-paper-plane" style={{cursor:'pointer',marginRight:'6px',fontSize:'20px' }} onClick={handleSend}></i>}
           {chat1&&<img src={img}
             />}
           

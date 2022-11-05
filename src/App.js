@@ -10,8 +10,11 @@ import { AuthContext } from './contextApi/contextapi';
 import Dictaphone1 from './home/microphone';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
+import Navbar from './Common/navbar/navbar';
+import Homepage from './home/homepage';
+import Features from './component/feature/features';
 
-
+import "./App.css"
 
 
 function App() {
@@ -22,7 +25,7 @@ const {currentUser}=useContext(AuthContext)
 const HideHome=({children})=>{
   if(!currentUser)
   {
-    return <Navigate to="/login"/>
+    return <Navigate to="/homepage"/>
   }
   return children;
 }
@@ -31,13 +34,17 @@ const HideHome=({children})=>{
   <>
  
   <BrowserRouter>
+  <Navbar></Navbar>
   <Routes>
    
-   <Route path='/'element=
+   {/*<Route path='/'element=
+    {<HideHome><Home></Home></HideHome>}/>*/}
+  <Route path='/'element=
     {<HideHome><Home></Home></HideHome>}/>
-  
    <Route path='/login'element={<Login/>}/>
    <Route path='/register'element={<Register/>}/>
+   <Route path='/homepage' element={<Homepage/>}/>
+   <Route path='/features' element={<Features/>}/>
   </Routes>
   </BrowserRouter>
  

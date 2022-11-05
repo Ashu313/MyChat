@@ -123,7 +123,7 @@ const  Register=() => {
           <span><i class="fab fa-speakap"></i></span>
           <span>Coders</span>
         </div>
-        <h1>Sign Up</h1>
+        <h1 style={{color:'black'}}>Sign Up</h1>
         <p>It's not long before you embark on this journey! </p>
 
         <form class="flex-c" onSubmit={HandleSubmit}>

@@ -1,12 +1,12 @@
 body {
     padding: 5%;
-    background-color: #F5F5F5;
+    
     
   }
   
   .container {
     padding:0;
-    background-color: #FFF; 
+    
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     height: 700px;
     display: flex;
@@ -317,8 +317,8 @@ body {
     box-shadow: 0px 3px 2px rgba(0,0,0,0.100);
     display:flex;
  justify-content: center;
-    
-    height: 40px;
+    padding: 1rem;
+    height: 50px;
    
   }
   
@@ -374,6 +374,7 @@ body {
   }
   .chat.active{
     /*background: #161b22;*/
+
     background-image:url(https://img.freepik.com/free-vector/mandala-illustration_53876-75291.jpg?w=996&t=st=1667655513~exp=1667656113~hmac=7b26decfe65722999cd6f6616c583f3b2639d8063c9718923a72572b0b15dc05)
   }
   .text-only {
@@ -434,8 +435,8 @@ body {
     width: 100%;
     background: black;
    
-    padding: 2rem;
-    /* border-top: 2px solid #EEE; */
+    padding: 3rem;
+     border-top: 2px solid #EEE; 
 }
 i{
   font-size: 20px;
@@ -591,7 +592,15 @@ i{
   .fa-solid.fa-arrow-left{
     display: block;
   }
-
+ header{
+  position:absolute;
+ }
+ .hello.active{
+  display:none;
+ }
+ .hello{
+  display: block;
+ }
   .discussions1{ width: 100%;
     position: absolute;
     top: 0;
@@ -618,5 +627,13 @@ i{
 .discussion1.active{
   background-color: #4f6ebd;
 }
+.chat.active{
+  /*background: #161b22;*/
+  position: fixed;
+  
 
+}
+.footer-chat{
+  position:fixed;
+}
 }
