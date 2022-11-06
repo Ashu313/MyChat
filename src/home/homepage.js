@@ -4,13 +4,18 @@ import AOS from "aos";
 import "aos/dist/aos.css"
 import { useEffect } from "react";
 
+import { useRef } from "react";
+
 
 const Homepage = () => {
     useEffect(() => {
         AOS.init();
     }, []);
+
+
+
     return (
-        <section className='contact-form' id="Achieve">
+        <section className='contact-form' id="Achieve" >
             <h1 class="heading">
                 <span>C</span>
                 <span>H</span>
@@ -137,7 +142,7 @@ const Homepage = () => {
                                 <span>P</span>
                                 <span>U</span>
                                 <span>T</span>
-                                <span>T</span>
+                               
                                 
                             </h1>
                             <h1>
@@ -192,8 +197,8 @@ const Homepage = () => {
                                 
                                 
                             </h1>
-        <h1 style={{backgroundImage: "linear-gradient(83.84deg,#08f -6.87%,#a033ff 26.54%,#ff5c87 58.58%)",webkitBackgroundClip: "text"
-            ,webkitTextFillColor:"transparent",fontSize:'60px'}}>
+        <h1 style={{backgroundImage: "linear-gradient(83.84deg,#08f -6.87%,#a033ff 26.54%,#ff5c87 58.58%)",WebkitBackgroundClip: "text"
+            ,WebkitTextFillColor:"transparent",fontSize:'60px'}}>
         Search 
          <br></br>
         

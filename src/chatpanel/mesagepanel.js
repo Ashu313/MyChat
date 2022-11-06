@@ -61,13 +61,18 @@ let name = month[d.getMonth()];
 
 
 
-  <>
+
    
-    <p style={{margin:'25px 25px 25px 25px' ,color:'white',textAlign:'center'}}>{new Date().toLocaleDateString('en-us', { weekday:"long", month:"short", day:"numeric"})},   {date.toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'})}</p>
+ 
+ <>
+  <p style={{margin:'25px 25px 25px 25px' ,color:'white',textAlign:'center'}}>{new Date().toLocaleDateString('en-us', { weekday:"long", month:"short", day:"numeric"})},   {date.toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'})}</p>
   <div   role='textbox'ref={re1f} className={`message1-chat ${message.senderId===currentUser.uid&&"owner"}`} >
   <div className='aside'>
   <div className='cont'>
   <div className='message' >
+
+
+<>
 
   <img src={message.senderId===currentUser.uid?currentUser.photoURL:data.user.photoURL} alt='fuuu'></img>
 
@@ -91,17 +96,22 @@ let name = month[d.getMonth()];
   </div>
     
   </div>
-
+  
  
+ </>
+
   </div>
   </div>
   </div>
  </div>
-
+ 
 </>
-  )
-  }
-  
+ 
+
+ 
+
+ )
+}
  
 export default MessagePanel1;
  

@@ -13,6 +13,8 @@ import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognitio
 import Navbar from './Common/navbar/navbar';
 import Homepage from './home/homepage';
 import Features from './component/feature/features';
+import { useEffect } from "react";
+import { useLocation } from "react-router";
 
 import "./App.css"
 
@@ -30,10 +32,27 @@ const HideHome=({children})=>{
   return children;
 }
 
+
+
+
+const ScrollToTop = (props) => {
+  const location = useLocation();
+  useEffect(() => {
+    if (!location.hash) {
+      window.scrollTo(0, 0);
+    }
+  }, [location]);
+
+  return <>{props.children}</>
+};
+
+
+
   return (
   <>
  
   <BrowserRouter>
+  <ScrollToTop/>
   <Navbar></Navbar>
   <Routes>
    

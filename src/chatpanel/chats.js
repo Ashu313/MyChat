@@ -222,7 +222,7 @@ let count =0;
 
     <>
     
-    <section className={setPhoneView1?'discussions': 'discussions1 active'}style={{width:'100%'}}>
+    <section className={currentUser?'discussions': 'discussions1 active'}style={{width:'100%'}}>
 
     {  Object.entries(chat)?.sort((a,b)=>a[1].date?.date-b[1].date?.date).map((chats)=>(
     

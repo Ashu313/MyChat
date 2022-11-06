@@ -30,7 +30,7 @@ import { query } from "firebase/database";
 
 
 
-const Messages=({setPhonvView})=>{
+const Messages=({setPhoneView})=>{
 
 
 
@@ -94,52 +94,55 @@ const {currentUser}=useContext(AuthContext)
 
 
     return(
-      
+      <>
+      <i class={currentUser?"fa-solid fa-right-from-bracket":"fa-solid fa-right-from-bracket"} style={{position:'absolute',fontSize:'20px'}}onClick={setPhoneView1}></i>
       <section class={phone?'chat':'chat active'}  >
         <div class="header-chat">
-        <i class={phone?'fa-solid fa-arrow-right':'fa-solid fa-arrow-right'} style={{position:'absolute',right:'0px',fontSize:'20px'}}onClick={setPhoneView1}></i>
+        <i class={currentUser?"fa-solid fa-right-from-bracket":"fa-solid fa-right-from-bracket"} style={{position:'absolute',right:'0px',fontSize:'20px'}}onClick={setPhoneView1}></i>
           <i class="icon fa fa-user-o"></i>
+    
     
      
          <div className='photo1'>
             {data.user.photoURL&&<img src={data.user.photoURL} class='image1' />}
             <div className="flex-col">
             <h2 class="name">{data.user.displayName}</h2>
-   {
-    
+ 
       <p className="status">{data.user.status}</p>
-    
-   }
-           
-   
-            <div>
+         
  </div>
-    
+  
    
 </div>
+     
+
+
               </div>
           
         
-         
+         <div>
        
           </div>
 
+
         <div class="messages-chat">
           
-         
+       
+         <>
             {messages.map((k)=>(
                 <MessagePanel1 message={k} key={k.id}/>
             ))
 }
-        </div>
-      
+</>
+      </div>
+    
 
       <Input chat1={data.user.displayName}></Input> 
 
       
- {phone&&<Sidebar setPhoneView1={setPhoneView1}/>}
+ {phone&&<Sidebar  setPhoneView1={setPhoneView1}/>}
         </section>
-         
+    </>     
        
     )
 

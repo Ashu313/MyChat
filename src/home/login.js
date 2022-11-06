@@ -130,7 +130,7 @@ const Login=()=>{
   </form>  
 
 </div>
-</div>:<img src="https://i.gifer.com/SVKl.gif" alt="loading..."  style={{width:"100%",height:"100%",position:'relative',top:'100px'}}/>
+</div>:<img src="https://i.gifer.com/origin/4d/4dc11d17f5292fd463a60aa2bbb41f6a_w200.webp" alt="loading..."  style={{position:'relative',top:'100px' ,left:'50%'}}/>
 
   
   )

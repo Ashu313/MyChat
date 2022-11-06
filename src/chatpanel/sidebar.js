@@ -69,78 +69,11 @@ console.log(data.user.uid);
         console.log('update hua')
       }
 
-     /* useEffect(() => {
-      const usersRef = collection(db, "users");
-      // create query object
-      const q = query(usersRef, where("uid", "not-in", [auth.currentUser.uid]));
-      // execute query
-      const unsub = onSnapshot(q, (querySnapshot) => {
-        let user1 = [];
-        querySnapshot.forEach((doc) => {
-          user1.push(doc.data());
-        });
-        setUser1(user1);
-      
-      });
-      
-     // currentUser.uid&&getChat();
-      
-      return () => unsub();
-      //}
     
-    }, [])
-    console.log(user1);*/
-      { 
-     
-       /* useEffect(()=>{
-          const getChats=()=>{
-            console.log("jnd");
-            const refresh=onSnapshot(doc(db,'usersChats',currentUser.uid),(doc1)=>{
-            console.log('current-data',Object.entries(doc1.data()));
-             
-              const docRef1 = doc(db, "usersChats", `${Object.entries(doc1.data())[0]}`);
-              setChat(doc1.data());
-            
-                const data1 = {
-                  
-                  status:'offline',
-                };
-                updateDoc(docRef1, data1)
-                console.log('update hua')
-            });
-        
-            return()=>{
-              refresh();
-            }
-          };
-          currentUser.uid && getChats();
-          
-        },[currentUser.uid]);*/
-      
-      }
   
      
 
 
-
-  //const {currentUser}=useContext(AuthContext);
-  //const [chat,setChat]=useState([]);
-
-  //const{dispatch}=useContext(ChatContext)
-
-let k11;
- /* useEffect(() => {
-    const docRef = doc(db, "users", `${currentUser.uid}`);
-      console.log(docRef);
-        const data = {
-          
-          status:new Date().toDateString()+' '+new Date().toLocaleTimeString(),
-        };
-        updateDoc(docRef, data)
-        console.log('update hua')
-      
-
-  }, []);*/
 
  
  
@@ -385,9 +318,9 @@ console.log(k2);
 
 
 
-
+    
     <section class={phone ? 'discussions1 active' : 'discussions1'}   >
-
+    
 
 
       <div class="flex">
@@ -399,6 +332,7 @@ console.log(k2);
         <div className='butt'>
           <button type="button" onClick={Sign} >SignOut</button>
         </div>
+       
       </div>
 
 
@@ -412,7 +346,7 @@ console.log(k2);
         <div class="discussion message-active" onClick={handleSelectUser}>
           <div class="desc-contact" style={{ display: 'flex', gap: '1rem' }} onClick={() => {
             handleSelet(user.displayName)
-           // setPhoneView1(true)
+            setPhoneView1(false)
           }}>
 
             <div class="photo" style={{ backgroundImage: `url(${user.photoURL})` }} onClick={setPhoneView}
@@ -444,7 +378,7 @@ console.log(k2);
   {  console.log('hua')}
       
       {chat&&<Chats setPhoneView1={setPhoneView1} />}
-
+    
 {console.log('phirhua')}
 
 

@@ -247,7 +247,12 @@ body {
        background-size: cover;
        background-repeat: no-repeat;
    }
-   
+   .chat{
+    display: none;
+   }
+   .chat.active{
+    display: block;
+   }
    .online {
      position: relative;
  
@@ -595,6 +600,9 @@ i{
     position: absolute;
     bottom: 100px;
   }
+  /*.hoo{
+    display: none;
+   }*/
 @media screen and (max-width:800px) {
  
   .fa-solid.fa-arrow-left{
@@ -603,6 +611,7 @@ i{
  header{
   position:absolute;
  }
+ 
  .hello.active{
   display:none;
  }

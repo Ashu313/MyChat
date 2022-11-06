@@ -5,12 +5,12 @@ import Messages from '../chatpanel/messages'
 import Sidebar from '../chatpanel/sidebar'
 import "./home.css"
 
-const Home = ({setPhoneView}) => {
+const Home = ({setPhoneView1}) => {
   return (
     <div className='home'>
     <div className='container'>
     <Sidebar/>
-     <Messages setPhonvView={setPhoneView}/>
+     <Messages setPhonvView1={setPhoneView1}/>
     
       
     </div>
