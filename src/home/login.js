@@ -36,7 +36,7 @@ const Login=()=>{
     // const auth = getAuth();
    
     try{
-      console.log("shhs");
+     
       setSign(!sign);
       const res=await signInWithEmailAndPassword(auth, Email, Password)
       
@@ -49,7 +49,7 @@ const Login=()=>{
      
      
     //  setLoading(!loading);
-      console.log("Ss");
+
       navigate('/')
       
        /*res.then((userCredential) => {

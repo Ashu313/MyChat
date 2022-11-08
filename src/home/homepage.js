@@ -36,38 +36,40 @@ const Homepage = () => {
             <div className="project-us-container" >
 
 
-            <div className="project-us-detail">
+                <div className="project-us-detail">
 
 
-<div className="image1">
-    <img src="/images/chatui.jpg" alt="a"  data-aos="fade-left"></img>
+                    <div className="image1">
+                        <img src="/images/chatui.jpg" alt="a" data-aos="fade-left"></img>
 
-</div>
-
-
-
-
-<div className="project-myself">
-    <div className="title_flex" data-aos="zoom-in-down" >
-       
-     
-        <h1 style={{backgroundImage: "linear-gradient(83.84deg,#08f -6.87%,#a033ff 26.54%,#ff5c87 58.58%)",webkitBackgroundClip: "text"
-            ,webkitTextFillColor:"transparent",fontSize:'60px'}}>
-         A Better 
-         <br></br>
-          Way 
-          <br></br>
-          to get Connected
-        
-            </h1>
-            <p style={{fontSize:'25px'}}>Share messages with friend<br></br> and<br></br> enjoy chats freely</p>
-    </div>
-
-</div>
+                    </div>
 
 
 
-</div>
+
+                    <div className="project-myself">
+                        <div className="title_flex" data-aos="zoom-in-down" >
+
+
+                            <h1 style={{
+                                backgroundImage: "linear-gradient(83.84deg,#08f -6.87%,#a033ff 26.54%,#ff5c87 58.58%)", webkitBackgroundClip: "text"
+                                , webkitTextFillColor: "transparent", fontSize: '60px'
+                            }}>
+                                A Better
+                                <br></br>
+                                Way
+                                <br></br>
+                                to get Connected
+
+                            </h1>
+                            <p style={{ fontSize: '25px' }}>Share messages with friend<br></br> and<br></br> enjoy chats freely</p>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
                 <div className="project-us-detail" >
 
 
@@ -104,7 +106,7 @@ const Homepage = () => {
                                 any
                                 <br></br>
                                 <span style={{ color: 'rgb(133, 29, 186)' }}>emoji</span>
-                                </h1>
+                            </h1>
                             <p style={{ fontSize: '30px' }}>
 
                                 Customize your REACTIONS.
@@ -129,7 +131,7 @@ const Homepage = () => {
 
                     <div className="project-myself">
                         <div className="title_flex" data-aos="zoom-in-down" >
-                           
+
                             <h1 className="heading">
                                 <span>V</span>
                                 <span>O</span>
@@ -142,23 +144,23 @@ const Homepage = () => {
                                 <span>P</span>
                                 <span>U</span>
                                 <span>T</span>
-                               
-                                
+
+
                             </h1>
                             <h1>
-                            Stop typing,
+                                Stop typing,
                                 Start
-                                <br></br> 
-                              
-                            <span style={{ color: 'rgb(133, 29, 186)' }}>talking</span>
+                                <br></br>
+
+                                <span style={{ color: 'rgb(133, 29, 186)' }}>talking</span>
                             </h1>
-                        
-                            <p style={{fontSize: '30px'}}>
-              
+
+                            <p style={{ fontSize: '30px' }}>
+
                                 Why bother to type when you can talk?
-                           
+
                                 Try the vioice input NOW 🔥</p>
-                               
+
                         </div>
 
                     </div>
@@ -170,18 +172,18 @@ const Homepage = () => {
                 <div className="project-us-detail">
 
 
-<div className="image1">
-    <img src="/images/search_user.jpg" alt="a" data-aos="fade-left"></img>
+                    <div className="image1">
+                        <img src="/images/search_user.jpg" alt="a" data-aos="fade-left"></img>
 
-</div>
-
-
+                    </div>
 
 
-<div className="project-myself">
-    <div className="title_flex" data-aos="zoom-in-down" >
-       
-    <h1 className="heading">
+
+
+                    <div className="project-myself">
+                        <div className="title_flex" data-aos="zoom-in-down" >
+
+                            <h1 className="heading">
                                 <span>S</span>
                                 <span>E</span>
                                 <span>A</span>
@@ -193,42 +195,44 @@ const Homepage = () => {
                                 <span>S</span>
                                 <span>E</span>
                                 <span>R</span>
-                            
-                                
-                                
+
+
+
                             </h1>
-        <h1 style={{backgroundImage: "linear-gradient(83.84deg,#08f -6.87%,#a033ff 26.54%,#ff5c87 58.58%)",WebkitBackgroundClip: "text"
-            ,WebkitTextFillColor:"transparent",fontSize:'60px'}}>
-        Search 
-         <br></br>
-        
-        for a user 
-        
-            </h1>
-            <p style={{fontSize:'25px'}}>Talk in realtime and send <br></br> messages, video images<br></br> and many features</p>
-    </div>
+                            <h1 style={{
+                                backgroundImage: "linear-gradient(83.84deg,#08f -6.87%,#a033ff 26.54%,#ff5c87 58.58%)", WebkitBackgroundClip: "text"
+                                , WebkitTextFillColor: "transparent", fontSize: '60px'
+                            }}>
+                                Search
+                                <br></br>
 
-</div>
+                                for a user
 
+                            </h1>
+                            <p style={{ fontSize: '25px' }}>Talk in realtime and send <br></br> messages, video images<br></br> and many features</p>
+                        </div>
 
-
-</div>
-          
-<div className="project-us-detail">
-
-
-<div className="image1">
-    <img src="/images/desktop_view.jpg" alt="a" data-aos="fade-left"></img>
-
-</div>
+                    </div>
 
 
 
+                </div>
 
-<div className="project-myself">
-    <div className="title_flex" data-aos="zoom-in-down" >
-       
-    <h1 className="heading">
+                <div className="project-us-detail">
+
+
+                    <div className="image1">
+                        <img src="/images/desktop_view.jpg" alt="a" data-aos="fade-left"></img>
+
+                    </div>
+
+
+
+
+                    <div className="project-myself">
+                        <div className="title_flex" data-aos="zoom-in-down" >
+
+                            <h1 className="heading">
                                 <span>S</span>
                                 <span>T</span>
                                 <span>O</span>
@@ -237,28 +241,30 @@ const Homepage = () => {
                                 <span>G</span>
                                 <span className="space">  </span>
                                 <span>E</span>
-                                
-                                
+
+
                             </h1>
-        <h1 style={{backgroundImage: "linear-gradient(83.84deg,#08f -6.87%,#a033ff 26.54%,#ff5c87 58.58%)",webkitBackgroundClip: "text"
-            ,webkitTextFillColor:"transparent",fontSize:'60px'}}>
-        Saving of data
-         <br></br>
-        of User
-          <br></br>
-         
-        
-            </h1>
-            <p style={{fontSize:'25px'}}>User can access data anytime<br></br> until<br></br> user delete his profile</p>
-    </div>
-
-</div>
+                            <h1 style={{
+                                backgroundImage: "linear-gradient(83.84deg,#08f -6.87%,#a033ff 26.54%,#ff5c87 58.58%)", webkitBackgroundClip: "text"
+                                , webkitTextFillColor: "transparent", fontSize: '60px'
+                            }}>
+                                Saving of data
+                                <br></br>
+                                of User
+                                <br></br>
 
 
+                            </h1>
+                            <p style={{ fontSize: '25px' }}>User can access data anytime<br></br> until<br></br> user delete his profile</p>
+                        </div>
 
-</div>
-          
-                
+                    </div>
+
+
+
+                </div>
+
+
 
 
 
