@@ -89,23 +89,7 @@ const  Register=() => {
           
         }
        
-          
-      
 
-       /* uploadTask.on(
-          
-            (error)=>{
-                setErr(true);
-            },
-            ()=>{
-              
-                getDownloadURL(uploadTask.snapshot.ref).then(async(DownloadURL) => {
-                  gg
-                    })
-                    console.log('File available at');*/
-                   
-        
-        
         }
         else{
             window.alert('wrong password');
@@ -121,7 +105,7 @@ const  Register=() => {
       <div class="login-text">
         <div class="logo">
           <span><i class="fab fa-speakap"></i></span>
-          <span>Coders</span>
+          <span>Messenger Chat</span>
         </div>
         <h1 style={{color:'black'}}>Sign Up</h1>
         <p>It's not long before you embark on this journey! </p>

@@ -66,7 +66,7 @@ console.log(data.user.uid);
           status:'online',
         };
         updateDoc(docRef, data)
-        console.log('update hua')
+       
       }
 
     
@@ -96,7 +96,7 @@ console.log(data.user.uid);
           status:new Date().toDateString()+' '+new Date().toLocaleTimeString(),
         };
         updateDoc(docRef, data)
-        console.log('update hua')
+      
  }
     
 catch(error) {
@@ -104,10 +104,6 @@ catch(error) {
 }
 
 
-
-
-
-  //console.log(chat[1].userinfo.displayName)
 
     signOut(auth);
   }
