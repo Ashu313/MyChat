@@ -51,7 +51,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "preinstall": "npx npm-force-resolutions",
-    "heroku-postbuild": "npm install"
+    "heroku-postbuild": "npm --legacy-peer-deps"
   },
   "eslintConfig": {
     "extends": [
