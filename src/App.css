@@ -27,8 +27,9 @@ html{
   overflow-x: hidden;
   scroll-padding-top: 6rem;
   scroll-behavior: smooth;
-  background: url(https://img.freepik.com/free-vector/gradient-abstract-background_23-2149131343.jpg?w=996&t=st=1667669025~exp=1667669625~hmac=42b3be89e2f1532721524abf4e19d8dac96591470eb9925b37a3a9105c5e4b72) no-repeat 
-    center center fixed; 
+ /* background: url(https://img.freepik.com/free-vector/gradient-abstract-background_23-2149131343.jpg?w=996&t=st=1667669025~exp=1667669625~hmac=42b3be89e2f1532721524abf4e19d8dac96591470eb9925b37a3a9105c5e4b72) no-repeat 
+    center center fixed; */
+    background-color:black;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
