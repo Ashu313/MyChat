@@ -331,7 +331,7 @@ body {
     background: white;
     padding: 3rem;
     border-top: 2px solid #EEE;
-    z-index: 20;
+   
    
   }
   
@@ -441,6 +441,9 @@ body {
     color: #98aff8;;
 }
   
+.header-chat i{
+  display: none;
+}
   .footer-chat {
    
     /* height: 80px; */
@@ -669,5 +672,8 @@ i{
 }
 .footer-chat{
   position:fixed;
+}
+.header-chat i{
+  display:block;
 }
 }

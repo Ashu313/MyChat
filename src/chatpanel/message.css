@@ -36,6 +36,10 @@
 }
 .message1-chat.false{
     height: 80px;
+    top: 170px;
+    position: relative;
+   
+
 }
 .message-chat1.owner{
     height: auto;
@@ -43,6 +47,8 @@
 }
 .message1-chat.false{
     height: auto;
+    top: 170px;
+    position: relative;
 }
 .message-chat{
     position: absolute;

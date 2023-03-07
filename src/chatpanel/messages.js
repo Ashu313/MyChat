@@ -95,10 +95,10 @@ const {currentUser}=useContext(AuthContext)
 console.log(data.user.status,data.user.displayName);
     return(
       <>
-      <i class={currentUser?"fa-solid fa-right-from-bracket":"fa-solid fa-right-from-bracket"} style={{position:'absolute',fontSize:'20px'}}onClick={setPhoneView1}></i>
+    
       <section class={phone?'chat':'chat active'}  >
         <div class="header-chat">
-        <i class={currentUser?"fa-solid fa-right-from-bracket":"fa-solid fa-right-from-bracket"} style={{position:'absolute',right:'0px',fontSize:'20px'}}onClick={setPhoneView1}></i>
+        <i class={currentUser&&phone?"":"fa-solid fa-right-from-bracket"} style={{position:'absolute',right:'0px',fontSize:'20px',zIndex:'1'}}onClick={setPhoneView1}></i>
           <i class="icon fa fa-user-o"></i>
     
     
