@@ -77,3 +77,11 @@ html{
 i:hover{
   color: palevioletred;
 }
+.home{
+  position:fixed;
+  left: 0;
+  right: 10%;
+  top: 0;
+  bottom: 0;
+
+}

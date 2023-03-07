@@ -83,7 +83,7 @@ const Navbar=()=>{
    <header className={currentUser?'hello active':'hello'}>
 
    <div className="menu-icons"  onClick={handleClick}  >
-  <i className={click?"fas fa-times":"fas fa-bars"}></i>
+   {!currentUser&&<i className={click?"fas fa-times":"fas fa-bars"}></i>}
          
   </div>
 
@@ -91,18 +91,22 @@ const Navbar=()=>{
      
        <div className="navbar" >
        <div className={click?"nav-menu active":"nav-menu"}>
-       <NavLink to="/" onClick={closeMobileMenu}>Home</NavLink>
+     
      {!currentUser?
      <>
+       <NavLink to="/" onClick={closeMobileMenu}>Home</NavLink>
                <NavLink to="/login" onClick={closeMobileMenu}>Login</NavLink>
                <NavLink to="/register"  onClick={closeMobileMenu}>Signup</NavLink>
-               </>
-               :
                <NavLink to="/features"  onClick={closeMobileMenu}>Packages</NavLink>
-     }
+     
                <NavLink to="/Testimonials"  onClick={closeMobileMenu}>review</NavLink>
    
                <NavLink to="/contact"  onClick={closeMobileMenu}>Contact</NavLink>
+               </>
+               :
+               <></>
+
+     }
        </div>
        </div>
 

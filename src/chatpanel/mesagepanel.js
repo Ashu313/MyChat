@@ -65,7 +65,7 @@ let name = month[d.getMonth()];
    
  
  <>
-  <p style={{margin:'25px 25px 25px 25px' ,color:'white',textAlign:'center'}}>{new Date().toLocaleDateString('en-us', { weekday:"long", month:"short", day:"numeric"})},   {date.toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'})}</p>
+  {/*<p style={{position:'relative', top:'-35px' ,color:'black',textAlign:'center'}}>{new Date().toLocaleDateString('en-us', { weekday:"long", month:"short", day:"numeric"})},   {date.toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'})}</p>*/}
   <div   role='textbox'ref={re1f} className={`message1-chat ${message.senderId===currentUser.uid&&"owner"}`} >
   <div className='aside'>
   <div className='cont'>

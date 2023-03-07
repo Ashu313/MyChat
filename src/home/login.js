@@ -1,6 +1,6 @@
 import React from 'react'
 import { signInWithEmailAndPassword, updateCurrentUser } from 'firebase/auth';
-import { auth } from '../Firebase';
+import { app, auth, database } from '../Firebase';
 import { NavLink, useNavigate } from 'react-router-dom';
 import "./login.css";
 import { useState } from 'react';
@@ -11,6 +11,10 @@ import { AuthContext } from '../contextApi/contextapi';
 import { query, where, getDocs, getDoc, updateDoc, serverTimestamp, Timestamp } from "firebase/firestore";
 import {  db } from '../Firebase';
 import { doc } from 'firebase/firestore';
+import { set } from 'firebase/database';
+import { onDisconnect } from 'firebase/database';
+import { update } from 'firebase/database';
+ import { ref } from 'firebase/database';
 
 const Login=()=>{
  
@@ -34,6 +38,9 @@ const Login=()=>{
      console.log(Password);
    
     // const auth = getAuth();
+   // Set up a reference to the user's node
+
+
    
     try{
      
@@ -41,17 +48,39 @@ const Login=()=>{
       const res=await signInWithEmailAndPassword(auth, Email, Password)
       
       setLoading(!loading)
+
       await updateDoc(doc(db,'users',res.user.uid),{
         status:'online'
    })
        setSign(sign);
-   
+  
      
-     
-    //  setLoading(!loading);
+    //  setLoading(!loading)
 
       navigate('/')
-      
+     
+
+  
+  set(ref(database, `users_presence/${res.user.uid}`), {
+   status:"online",
+  });
+  const lastSeen =new Date().toDateString()+' '+new Date().toLocaleTimeString()
+update(ref(database, `users_presence/${res.user.uid}`), { lastSeen });
+
+// Update the user's last seen timestamp every 5 seconds
+setInterval(() => {
+  update(ref(database, `users_presence/${res.user.uid}`), { lastSeen:new Date().toDateString()+' '+new Date().toLocaleTimeString()});
+}, 5000);
+
+// Set the user's last seen timestamp to null when they disconnect from the database
+onDisconnect(ref(database, `users_presence/${res.user.uid}`)).update({ lastSeen:new Date().toDateString()+' '+new Date().toLocaleTimeString() });
+
+  // Set up a reference to the user's node
+ // Set up a reference to the user's node
+
+
+  
+           
        /*res.then((userCredential) => {
          // Signed in 
           const user = userCredential.user;

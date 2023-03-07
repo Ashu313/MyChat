@@ -59,18 +59,8 @@ const Sidebar = ({ setPhoneView1 }) => {
   }
 
 console.log(data.user.uid);
- { const docRef = doc(db, "users", `${currentUser.uid}`);
-      console.log(docRef);
-        const data = {
-          
-          status:'online',
-        };
-        updateDoc(docRef, data)
-       
-      }
-
-    
-  
+ 
+   
      
 
 
@@ -78,35 +68,7 @@ console.log(data.user.uid);
  
  
   var k2=false;
-  const Sign = async() => {
-    
-    
-  //console.log(`${(Object.entries(Object.entries(currentUser.uid))[0][1])[1].userinfo}`);
-    
-   
-  
-
-  
-    try{
  
-      const docRef = doc(db, "users", `${currentUser.uid}`);
-      console.log(docRef);
-        const data = {
-          
-          status:new Date().toDateString()+' '+new Date().toLocaleTimeString(),
-        };
-        updateDoc(docRef, data)
-      
- }
-    
-catch(error) {
-    console.log(error);
-}
-
-
-
-    signOut(auth);
-  }
 
 
 console.log(k2);
@@ -169,6 +131,8 @@ console.log(k2);
     console.log(currentUser.uid);
     console.log(user.uid);
     console.log(res.exists() ? 'true' : 'false');
+     
+    
     try {
 
 
@@ -189,7 +153,8 @@ console.log(k2);
             displayName: user.displayName,
             photoURL: user.photoURL,
             email:user.email,
-            status:user.status,
+            status:user?user.status:'offline'
+           
          
          
             
@@ -212,7 +177,8 @@ console.log(k2);
             displayName: currentUser.displayName,
             photoURL: currentUser.photoURL,
                email:currentUser.email,
-               status:user.status,
+               status:Sign?currentUser.uid:"baby"
+           
               
                
              
@@ -237,7 +203,8 @@ console.log(k2);
            displayName: user.displayName,
            photoURL: user.photoURL,
            email:user.email,
-           status:"online",
+           status:user?user.status:'offline'
+          
         
         
            
@@ -260,7 +227,8 @@ console.log(k2);
            displayName: currentUser.displayName,
            photoURL: currentUser.photoURL,
               email:currentUser.email,
-              status:"online",
+              status:Sign?currentUser.uid:"baby"
+           
              
               
             
@@ -304,6 +272,16 @@ console.log(k2);
     //console.log(chat[1].userinfo.displayName)
 
   }
+  const Sign = async() => {
+    
+    
+    //console.log(`${(Object.entries(Object.entries(currentUser.uid))[0][1])[1].userinfo}`);
+      
+     
+  
+  
+      signOut(auth);
+    }
   var k = 1;
   const handleSelet = async(u) => {
    

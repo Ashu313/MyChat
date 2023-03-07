@@ -105,8 +105,7 @@ header{
 }
 .container i{
   margin: 0 5px 0 15px;
-  font-size: 13px;
-  color: #fff;
+  font-size: 13px; 
   
 }
 header .login-area{

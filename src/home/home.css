@@ -173,7 +173,8 @@ body {
      box-shadow: 0px 8px 10px rgba(0,0,0,0.20);
      overflow: hidden;
      
-      background-image:url(https://img.freepik.com/free-photo/navy-blue-concrete-wall-with-scratches_53876-102666.jpg?w=996&t=st=1667657110~exp=1667657710~hmac=1079728f10cc9581b0ddb653bad0668b0a8aa935d94eec24c8caed64bb47aaab);
+    /*  background-image:url(https://img.freepik.com/free-photo/navy-blue-concrete-wall-with-scratches_53876-102666.jpg?w=996&t=st=1667657110~exp=1667657710~hmac=1079728f10cc9581b0ddb653bad0668b0a8aa935d94eec24c8caed64bb47aaab);*/
+    background: #2c3e50;
     /* background: #464646;*/
      
      display: inline-block;
@@ -290,8 +291,8 @@ body {
    }
 
    .photo1 img{
-    width: 28px;
-    height: 28px;
+    width: 50px;
+    height: 50px;
     border: 1px solid white;
    }
   img{
@@ -314,17 +315,23 @@ body {
     width: calc(65% - 85px);
     overflow: scroll;
     position: relative;
-    background-image:url(https://img.freepik.com/free-vector/mandala-illustration_53876-75291.jpg?w=996&t=st=1667655513~exp=1667656113~hmac=7b26decfe65722999cd6f6616c583f3b2639d8063c9718923a72572b0b15dc05)
+    /*background-image:url(https://img.freepik.com/free-vector/mandala-illustration_53876-75291.jpg?w=996&t=st=1667655513~exp=1667656113~hmac=7b26decfe65722999cd6f6616c583f3b2639d8063c9718923a72572b0b15dc05)*/
   }
   
   .header-chat {
-    background:linear-gradient(225deg, #02111b9a 0%, #02082254 100%);
-   
-    box-shadow: 0px 3px 2px rgba(0,0,0,0.100);
-    display:flex;
- justify-content: center;
-    padding: 1rem;
-    height: 50px;
+  /* position: absolute; */
+    /* overflow: hidden; */
+    display: flex;
+    height: 20px;
+    align-items: center;
+    position: relative;
+    /* bottom: 0; */
+    /* gap: 1rem; */
+    /* width: 100%; */
+    background: white;
+    padding: 3rem;
+    border-top: 2px solid #EEE;
+    z-index: 20;
    
   }
   
@@ -339,7 +346,7 @@ body {
     text-transform: uppercase;
     font-family:'Montserrat', sans-serif;
     font-size: 13pt;
-    color:white
+    color:black;
   }
   
   .chat .header-chat .right {
@@ -350,10 +357,12 @@ body {
   .chat .messages-chat {
   
     overflow-x: hidden;
-  height: 500px;
+  height: 100%;
     display: initial;
     position: absolute;
-  width: 100%;  }
+  width: 100%; 
+  bottom: 100px;
+  }
   
   .chat .messages-chat .message {
     display:flex;
@@ -381,7 +390,7 @@ body {
   .chat.active{
     /*background: #161b22;*/
 
-    background-image:url(https://img.freepik.com/free-vector/mandala-illustration_53876-75291.jpg?w=996&t=st=1667655513~exp=1667656113~hmac=7b26decfe65722999cd6f6616c583f3b2639d8063c9718923a72572b0b15dc05)
+    background-color: #dbdbdb;
   }
   .text-only {
     margin-left: 45px;
@@ -414,6 +423,9 @@ body {
     flex-direction: column;
     gap: 3px;
   }
+  .flex-col h2{
+    color: black;
+  }
   .flex-col>h2{
     font-size: 12px;
     font-weight: 500;
@@ -424,7 +436,7 @@ body {
   }
   .flex-col>p{
     font-weight: 400;
-    font-size: 9px;
+    font-size: 14px;
     line-height: 9px;
     color: #98aff8;;
 }
@@ -439,7 +451,7 @@ body {
     bottom: 0;
     gap:1rem;
     width: 100%;
-    background: black;
+    background:white;
    
     padding: 3rem;
      border-top: 2px solid #EEE; 
@@ -560,23 +572,27 @@ i{
     border-radius: 10px;
     font-size: 10px;
     border: none;
-    font-size: 10px;
+    font-size: 20px;
     font-weight: 400;
     line-height: 11px;
     letter-spacing: -.0703125px;
     outline: 0;
     margin-left: 10px;
     height: 60px;
+    background: lightgrey;
+
       
   }
   textarea::placeholder {
-    font: 10px sans-serif;
+    font: 20px;
+    color: green;
+    
 }
   .fa-solid.fa-arrow-left{
     display: none;
   }
   .set_date.active1 p{
-    color:orangered;
+    color:white;
     font-size: 14px;
     
    

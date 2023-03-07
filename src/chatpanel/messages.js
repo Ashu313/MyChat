@@ -92,7 +92,7 @@ const {currentUser}=useContext(AuthContext)
       };
     }, [data.chatId]);
 
-
+console.log(data.user.status,data.user.displayName);
     return(
       <>
       <i class={currentUser?"fa-solid fa-right-from-bracket":"fa-solid fa-right-from-bracket"} style={{position:'absolute',fontSize:'20px'}}onClick={setPhoneView1}></i>
