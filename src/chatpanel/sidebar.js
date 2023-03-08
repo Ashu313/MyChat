@@ -297,11 +297,12 @@ console.log(k2);
     
 
 
-      <div class="flex">
+      <div class="flex1">
         <div className='image-bottom'>
-          <h1>{currentUser.displayName}</h1>
+        
         {/*  <h1>{currentUser.metadata.lastSignInTime}</h1>*/}
           <img src={currentUser.photoURL} />
+          <h1>{currentUser.displayName}</h1>
         </div>
         <div className='butt'>
           <button type="button" onClick={Sign} >SignOut</button>

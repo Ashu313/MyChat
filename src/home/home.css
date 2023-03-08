@@ -334,13 +334,26 @@ body {
    
    
   }
-  
+  .flex1{
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    padding: 2rem;
+
+  }
   .chat .header-chat .icon {
     margin-left: 30px;
     color:white;
     font-size: 14pt;
   }
-  
+  .image-bottom{
+    display: grid;
+    justify-content: center;
+    position: absolute;
+    top: 10px;
+    padding: 2rem;
+    height: 150px;
+  }
   .chat .header-chat .name {
     
     text-transform: uppercase;
@@ -392,6 +405,21 @@ body {
 
     background-color: #dbdbdb;
   }
+  .header-chat1{
+    position: fixed; 
+    /* overflow: hidden; */
+    display: flex;
+    height: 20px;
+    align-items: center;
+    position: relative;
+    /* bottom: 0; */
+    /* gap: 1rem; */
+    /* width: 100%; */
+    background: white;
+    padding: 3rem;
+    border-top: 2px solid #EEE;
+    z-index: 1;
+  }
   .text-only {
     margin-left: 45px;
   }
@@ -425,6 +453,7 @@ body {
   }
   .flex-col h2{
     color: black;
+    text-transform: uppercase;
   }
   .flex-col>h2{
     font-size: 12px;
@@ -432,7 +461,7 @@ body {
     line-height: 13px;
     letter-spacing: 0;
     margin-top: 6px;
-    color: white;
+    
   }
   .flex-col>p{
     font-weight: 400;
@@ -440,7 +469,10 @@ body {
     line-height: 9px;
     color: #98aff8;;
 }
-  
+.image-bottom h1{
+  text-transform: uppercase;
+  font-size: 25px;
+}
 .header-chat i{
   display: none;
 }
@@ -556,6 +588,15 @@ i{
   .butt button{
     background-color: green;
     color: white;
+    color: white;
+    position: fixed;
+    right: 0;
+    top: 0;
+    padding:1rem;
+    background-color: grey;
+  }
+  button:hover{
+    background-color: orange;
   }
   .image img{
    width: 100%;

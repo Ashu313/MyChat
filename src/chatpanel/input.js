@@ -20,6 +20,8 @@ import useSpeechToText from 'react-hook-speech-to-text';
 import { useSpeechRecognition } from 'react-speech-kit';
 import { useSpeechSynthesis } from 'react-speech-kit';
 import { useRef } from 'react'
+ 
+
 
 
 
@@ -44,7 +46,11 @@ const Input = ({chat1}) => {
       setText(result);
     },
   });
-
+  const handleSpeak = () => {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.voice = speechSynthesis.getVoices().find((voice) => voice.name === "Google UK English Female");
+    speak(utterance);
+  };
 
 
   console.log(data.user.displayName);
@@ -179,9 +185,9 @@ console.log(data.user.uid)
          {chat1 && <input type="file"   id='input' style={{cursor:'pointer', marginRight:'6px',fontSize:'20px',color:'grey'}} onChange={(e)=>setFile((e.target.files[0]))
            }/>}
  
-        {chat1 &&text&& <i class="fa-solid fa-paper-plane" style={{cursor:'pointer',marginRight:'6px',fontSize:'20px',color:'grey' }}  onClick={handleSend}/>}
+        {chat1 &&text&& <i class="fa-solid fa-paper-plane" style={{cursor:'pointer',marginRight:'6px',fontSize:'20px',color:'grey' }} onClick={handleSend}/>}
           
-        {chat1 &&<i class="fa-solid fa-volume-high" style={{cursor:'pointer' ,marginRight:'6px',fontSize:'20px',color:'grey'}}onClick={() => speak({ text: text })}></i>}
+        {chat1 &&<i class="fa-solid fa-volume-high" style={{cursor:'pointer' ,marginRight:'6px',fontSize:'20px',color:'grey'}} value={text}  onChange={(event)=>setText(event.target.value)} onClick={handleSpeak}></i>}
        
          {chat1 && <i class="fa-solid fa-microphone" onMouseDown={listen} onMouseUp={stop} style={{cursor:'pointer',marginRight:'6px',fontSize:'20px',color:'grey'}}></i>}
          {listening && <div>⏺️</div>}
@@ -193,7 +199,7 @@ console.log(data.user.uid)
             <i class="fa-solid fa-file" style={{marginRight:'6px',fontSize:'20px',color:'grey'}}  ></i>
             </label>
           </div>}
-          {img &&<i class="fa-solid fa-paper-plane" style={{cursor:'pointer',marginRight:'6px',fontSize:'20px',color:'grey'}} onClick={handleSend}></i>}
+          {img &&<i class="fa-solid fa-paper-plane" style={{cursor:'pointer',marginRight:'6px',fontSize:'20px',color:'grey'}}  onClick={handleSend}></i>}
           {chat1&&<img src={img}
             />}
           

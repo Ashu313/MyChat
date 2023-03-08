@@ -97,7 +97,7 @@ console.log(data.user.status,data.user.displayName);
       <>
     
       <section class={phone?'chat':'chat active'}  >
-        <div class="header-chat">
+        <div class={phone?"header-chat":"header-chat1"}>
         <i class={currentUser&&phone?"":"fa-solid fa-right-from-bracket"} style={{position:'absolute',right:'0px',fontSize:'20px',zIndex:'1'}}onClick={setPhoneView1}></i>
           <i class="icon fa fa-user-o"></i>
     

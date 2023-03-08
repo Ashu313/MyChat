@@ -88,7 +88,7 @@ let name = month[d.getMonth()];
   
  <p  style={{lineBreak:'anywhere',marginLeft:'10px',fontWeight:'500'}}>{message?.text}</p>
 
-  {message.text!=""&&message.senderId===currentUser.uid?<i class="fa-solid fa-microphone" onClick={() => speak({ text: message.text})} style={{color:"red",position:"absolute",right:'0px',bottom:'20px',fontSize:'20px'}}></i>:<i class="fa-solid fa-microphone" onClick={() => speak({ text: message.text})} style={{color:"red"}}></i>}
+  {message.text!=""&&message.senderId===currentUser.uid?<i class="fa-solid fa-microphone" onClick={() => speak({ text: message.text})} style={{color:"red",position:"absolute",right:'0px',bottom:'20px',fontSize:'20px'}}></i>:<i class="fa-solid fa-microphone" onClick={() => speak({ text: message.text })} style={{color:"red"}}></i>}
   
   <div  className={`set_date ${message.senderId!=currentUser.uid&&"active1"}`}>
   <p >{ message.senderId===currentUser.uid?date.toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'}):date.toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'})}</p>
